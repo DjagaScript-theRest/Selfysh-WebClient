@@ -10,30 +10,32 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
-var register_component_1 = require("./authentication/register/register.component");
-var login_component_1 = require("./authentication/login/login.component");
-//import { UserComponent } from './components/user/user.component';
-//import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-var routes = [
-    { path: 'register', component: register_component_1.RegisterComponent },
-    { path: 'login', component: login_component_1.LoginComponent },
-    { path: '', redirectTo: '/posts', pathMatch: 'full' }
-];
-var AppRoutingModule = (function () {
-    function AppRoutingModule() {
+var common_1 = require("@angular/common");
+var forms_1 = require("@angular/forms");
+var post_list_component_1 = require("./post-list.component");
+var post_service_1 = require("./post.service");
+var PostModule = (function () {
+    function PostModule() {
     }
-    return AppRoutingModule;
+    return PostModule;
 }());
-AppRoutingModule = __decorate([
+PostModule = __decorate([
     core_1.NgModule({
         imports: [
-            router_1.RouterModule.forRoot(routes)
+            common_1.CommonModule,
+            forms_1.FormsModule,
+            router_1.RouterModule.forChild([
+                { path: 'posts', component: post_list_component_1.PostListComponent }
+            ])
         ],
-        exports: [
-            router_1.RouterModule
+        declarations: [
+            post_list_component_1.PostListComponent
+        ],
+        providers: [
+            post_service_1.PostService
         ]
     }),
     __metadata("design:paramtypes", [])
-], AppRoutingModule);
-exports.AppRoutingModule = AppRoutingModule;
-//# sourceMappingURL=app-routing.module.js.map
+], PostModule);
+exports.PostModule = PostModule;
+//# sourceMappingURL=post.module.js.map
