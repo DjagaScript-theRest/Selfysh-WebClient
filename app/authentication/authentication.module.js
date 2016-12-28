@@ -8,38 +8,32 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var platform_browser_1 = require("@angular/platform-browser");
 var core_1 = require("@angular/core");
+var common_1 = require("@angular/common");
 var forms_1 = require("@angular/forms");
-var http_1 = require("@angular/http");
-var authentication_module_1 = require("./authentication/authentication.module");
-var app_component_1 = require("./app.component");
-var home_component_1 = require("./home/home.component");
-var app_routing_module_1 = require("./app-routing.module");
-var AppModule = (function () {
-    function AppModule() {
+var login_component_1 = require("./login/login.component");
+var register_component_1 = require("./register/register.component");
+var authentication_service_1 = require("./authentication.service");
+//import { SimpleNotificationsModule, NotificationsService } from '../../node_modules/angular2-notifications';
+var AuthenticationModule = (function () {
+    function AuthenticationModule() {
     }
-    return AppModule;
+    return AuthenticationModule;
 }());
-AppModule = __decorate([
+AuthenticationModule = __decorate([
     core_1.NgModule({
-        declarations: [
-            app_component_1.AppComponent,
-            home_component_1.HomeComponent
-        ],
         imports: [
-            platform_browser_1.BrowserModule,
+            common_1.CommonModule,
             forms_1.FormsModule,
-            http_1.HttpModule,
-            authentication_module_1.AuthenticationModule,
-            app_routing_module_1.AppRoutingModule
+            forms_1.ReactiveFormsModule,
         ],
-        providers: [],
-        bootstrap: [
-            app_component_1.AppComponent
-        ]
+        declarations: [
+            register_component_1.RegisterComponent,
+            login_component_1.LoginComponent,
+        ],
+        providers: [authentication_service_1.AuthenticationService,]
     }),
     __metadata("design:paramtypes", [])
-], AppModule);
-exports.AppModule = AppModule;
-//# sourceMappingURL=app.module.js.map
+], AuthenticationModule);
+exports.AuthenticationModule = AuthenticationModule;
+//# sourceMappingURL=authentication.module.js.map
