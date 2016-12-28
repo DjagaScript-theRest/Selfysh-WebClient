@@ -12,7 +12,9 @@ import { Router } from '@angular/router';
 export class RegisterComponent implements OnInit {
 
     public userToRegister: FormGroup;
-    options: Object;
+    
+    public error: boolean = false;
+    public errorMessage: string;
 
     constructor(
         private fb: FormBuilder,
@@ -36,7 +38,14 @@ export class RegisterComponent implements OnInit {
                  this._router.navigateByUrl('/login');
             },
             (err: any) => {
+               
                 let notificationMsg = JSON.parse(err._body).message;
+                this.error = true
+                this.errorMessage = notificationMsg;
+                setTimeout(() => {
+                this.error = false;
+                    
+                }, 4500);
             });
     }
 }

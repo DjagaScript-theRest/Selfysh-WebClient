@@ -17,6 +17,7 @@ var LoginComponent = (function () {
         this.fb = fb;
         this._authService = _authService;
         this._router = _router;
+        this.error = false;
     }
     LoginComponent.prototype.ngOnInit = function () {
         this.userToLogin = this.fb.group({
@@ -31,6 +32,11 @@ var LoginComponent = (function () {
             _this._router.navigateByUrl('/home');
         }, function (err) {
             var notificationMsg = JSON.parse(err._body).message;
+            _this.error = true;
+            _this.errorMessage = notificationMsg;
+            setTimeout(function () {
+                _this.error = false;
+            }, 2500);
         });
     };
     return LoginComponent;

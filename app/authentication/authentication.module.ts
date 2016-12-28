@@ -6,8 +6,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthenticationService } from './authentication.service';
-//import { SimpleNotificationsModule, NotificationsService } from '../../node_modules/angular2-notifications';
-
 @NgModule({
   imports: [
     CommonModule,
@@ -19,6 +17,6 @@ import { AuthenticationService } from './authentication.service';
     RegisterComponent,
     LoginComponent,
   ],
-  providers: [AuthenticationService, /*NotificationsService*/]
+  providers: [AuthenticationService]
 })
 export class AuthenticationModule { }

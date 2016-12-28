@@ -14,7 +14,6 @@ var forms_1 = require("@angular/forms");
 var login_component_1 = require("./login/login.component");
 var register_component_1 = require("./register/register.component");
 var authentication_service_1 = require("./authentication.service");
-//import { SimpleNotificationsModule, NotificationsService } from '../../node_modules/angular2-notifications';
 var AuthenticationModule = (function () {
     function AuthenticationModule() {
     }
@@ -31,7 +30,7 @@ AuthenticationModule = __decorate([
             register_component_1.RegisterComponent,
             login_component_1.LoginComponent,
         ],
-        providers: [authentication_service_1.AuthenticationService,]
+        providers: [authentication_service_1.AuthenticationService]
     }),
     __metadata("design:paramtypes", [])
 ], AuthenticationModule);

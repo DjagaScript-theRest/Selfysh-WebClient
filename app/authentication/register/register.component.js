@@ -17,6 +17,7 @@ var RegisterComponent = (function () {
         this.fb = fb;
         this._authService = _authService;
         this._router = _router;
+        this.error = false;
     }
     RegisterComponent.prototype.ngOnInit = function () {
         this.userToRegister = this.fb.group({
@@ -35,6 +36,11 @@ var RegisterComponent = (function () {
             _this._router.navigateByUrl('/login');
         }, function (err) {
             var notificationMsg = JSON.parse(err._body).message;
+            _this.error = true;
+            _this.errorMessage = notificationMsg;
+            setTimeout(function () {
+                _this.error = false;
+            }, 4500);
         });
     };
     return RegisterComponent;

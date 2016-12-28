@@ -1,33 +1,42 @@
- <div class="container">
-		<div class="row">
-			<div class="panel panel-primary">
-				<div class="panel-body">
-					<form [formGroup]="userToRegister" #registrationForm="ngForm" class="register-form" (ngSubmit)="register(); registrationForm.reset()">
-						<div class="form-group">
-							<h2>Create account</h2>
-						</div>
-						<div class="form-group">
-							<label class="control-label" for="signupName">Username</label>
-							<input id="signupName" type="text" maxlength="50" class="form-control"  formControlName="username">
-						</div>
-						<div class="form-group">
-							<label class="control-label" for="signupEmail">Email</label>
-							<input id="signupEmail" type="email" maxlength="50" class="form-control"  formControlName="email">
-						</div>
-					
-						<div class="form-group">
-							<label class="control-label" for="signupPassword">Password</label>
-							<input id="signupPassword" type="password" maxlength="25" class="form-control" placeholder="at least 6 characters" length="40" formControlName="password">
-						</div>
-						<div class="form-group">
-							<label class="control-label" for="signupPasswordagain">Password again</label>
-							<input id="signupPasswordagain" type="password" maxlength="25" class="form-control" formControlName="confirmedPassword">
-						</div>
-						<div class="form-group">
-							<button id="signupSubmit" type="submit" class="btn btn-info btn-block">Create your account</button>
-						</div>						
-					</form>
-				</div>
+<div class="container">
+	<div class="row">
+		<div class="panel panel-primary">
+			<div class="panel-body">
+				<form [formGroup]="userToRegister" #registrationForm="ngForm" class="register-form" (ngSubmit)="register(); registrationForm.reset()">
+					<div class="form-group">
+						<h2>Create account</h2>
+					</div>
+					<div class="form-group">
+						<label class="control-label" for="signupName">Username</label>
+						<input id="signupName" type="text" maxlength="50" class="form-control" formControlName="username">
+						<span class="text-danger" *ngIf="!userToRegister.controls['username'].valid && userToRegister.controls['username'].touched">Please eneter valid username</span>
+					</div>
+					<div class="form-group">
+						<label class="control-label" for="signupEmail">Email</label>
+						<input id="signupEmail" type="email" maxlength="50" class="form-control" formControlName="email">
+						<span class="text-danger" *ngIf="!userToRegister.controls['email'].valid && userToRegister.controls['email'].touched">Please eneter valid E-mail</span>
+
+					</div>
+
+					<div class="form-group">
+						<label class="control-label" for="signupPassword">Password</label>
+						<input id="signupPassword" type="password" maxlength="25" class="form-control" placeholder="at least 6 characters" length="40"
+							formControlName="password">
+						<span class="text-danger" *ngIf="!userToRegister.controls['password'].valid && userToRegister.controls['password'].touched">Please eneter valid password</span>
+
+					</div>
+					<div class="form-group">
+						<label class="control-label" for="signupPasswordagain">Password again</label>
+						<input id="signupPasswordagain" type="password" maxlength="25" class="form-control" formControlName="confirmedPassword">
+						<span class="text-danger" *ngIf="userToRegister.controls['confirmedPassword'].value != userToRegister.controls['password'].value && userToRegister.controls['confirmedPassword'].touched ">Passwords do not match</span>
+					</div>
+					<div class="form-group">
+						<button [disabled]="!userToRegister.valid" id="signupSubmit" type="submit" class="btn btn-info btn-block">Create your account</button>
+						 <span class="text-danger" *ngIf="error">{{errorMessage}}</span>
+
+					</div>
+				</form>
 			</div>
 		</div>
 	</div>
+</div>
