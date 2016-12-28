@@ -1,33 +1,32 @@
 <div class="container">
-    <div class="row">
+    <div class="row" *ngFor='let post of posts'>
         <div class="col-xs-12 col-md-6">
             <div class="post-snippet" style="width: 100%">
                 <div class="post-title">
-                    <h2>Some header</h2>
+                    <h2>{{post.title}}</h2>
                 </div>
                 <div class="post-image" style="width: 100%">
-                    <img src="https://www.codeproject.com/KB/GDI-plus/ImageProcessing2/img.jpg" alt="Image" style="width: 100%">
+                    <img [src]='post.imageUrl' alt="Image" style="width: 100%">
                 </div>
                 <ul class="post-meta">
                     <li>
                         <a href="">
-                            <i class="ti-user">Pesho</i>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="">
-                            <i class="ti-thumb-up">100</i>
+                            <i class="ti-user">{{post.author}}</i>
                         </a>
                     </li>
                     <li>
                         <a href="">
-                            <i class="ti-thumb-down">300</i>
+                            <i class="ti-thumb-up">{{post.likes}}</i>
                         </a>
                     </li>
                     <li>
                         <a href="">
-                            <i class="ti-comment">123</i>
+                            <i class="ti-thumb-down">{{post.dislikes}}</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <i class="ti-comment">{{post.comments.length}}</i>
                         </a>
                     </li>
                     <li>
@@ -43,8 +42,6 @@
                 </ul>
             </div>
             <hr>
-
         </div>
-
     </div>
 </div>
