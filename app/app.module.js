@@ -17,6 +17,7 @@ var app_component_1 = require("./app.component");
 // import { HomeComponent } from './home/home.component'
 var app_routing_module_1 = require("./app-routing.module");
 var post_module_1 = require("./posts/post.module");
+var core_module_1 = require("./core/core.module");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -33,7 +34,8 @@ AppModule = __decorate([
             http_1.HttpModule,
             authentication_module_1.AuthenticationModule,
             app_routing_module_1.AppRoutingModule,
-            post_module_1.PostModule
+            post_module_1.PostModule,
+            core_module_1.CoreModule
         ],
         providers: [],
         bootstrap: [

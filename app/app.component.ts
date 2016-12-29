@@ -1,9 +1,8 @@
 import { Component } from '@angular/core'
 
 @Component({
-    selector:'app',
-    templateUrl:'app/app.component.html'
+    moduleId: module.id,
+    selector: 'selfysh-app',
+    templateUrl: 'app.component.html'
 })
-export class AppComponent{
-
-}
+export class AppComponent { }

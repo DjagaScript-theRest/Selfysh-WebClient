@@ -16,8 +16,9 @@ var AppComponent = (function () {
 }());
 AppComponent = __decorate([
     core_1.Component({
-        selector: 'app',
-        templateUrl: 'app/app.component.html'
+        moduleId: module.id,
+        selector: 'selfysh-app',
+        templateUrl: 'app.component.html'
     }),
     __metadata("design:paramtypes", [])
 ], AppComponent);
