@@ -10,13 +10,19 @@ import { IPost } from './post';
 
 @Injectable()
 export class PostService {
-    private _postUrl = '../../api-test/posts.json';
+    private _postUrl = 'http://localhost:1337/api/posts';
 
     constructor(private _http: Http) { }
 
     getPosts(): Observable<IPost[]> {
         return this._http.get(this._postUrl)
-            .map((response: Response) => <IPost[]> response.json())
-            .do(data => console.log('All: ' +  JSON.stringify(data)))
+            .map((response: Response) => <IPost[]>response.json())
+            .do(data => console.log('All: ' + JSON.stringify(data)))
+    }
+
+    getPostsByCategory(category: string): Observable<IPost[]> {
+        return this._http.get(this._postUrl + '/' + category)
+            .map((response: Response) => <IPost[]>response.json())
+            .do(data => console.log('All: ' + JSON.stringify(data)))
     }
 }

@@ -22,7 +22,7 @@ var NavComponent = (function () {
                 link: [''],
                 children: [{
                         name: 'Bitches',
-                        link: ['/bitches'],
+                        link: ['/posts/bitches'],
                         children: null
                     }, {
                         name: 'Fun',

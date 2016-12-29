@@ -16,10 +16,15 @@ require("rxjs/add/operator/map");
 var PostService = (function () {
     function PostService(_http) {
         this._http = _http;
-        this._postUrl = '../../api-test/posts.json';
+        this._postUrl = 'http://localhost:1337/api/posts';
     }
     PostService.prototype.getPosts = function () {
         return this._http.get(this._postUrl)
+            .map(function (response) { return response.json(); })
+            .do(function (data) { return console.log('All: ' + JSON.stringify(data)); });
+    };
+    PostService.prototype.getPostsByCategory = function (category) {
+        return this._http.get(this._postUrl + '/' + category)
             .map(function (response) { return response.json(); })
             .do(function (data) { return console.log('All: ' + JSON.stringify(data)); });
     };

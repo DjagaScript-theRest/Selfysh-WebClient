@@ -20,7 +20,7 @@ export class NavComponent implements OnInit {
             link: [''],
             children: [{
                 name: 'Bitches',
-                link: ['/bitches'],
+                link: ['/posts/bitches'],
                 children: null
             }, {
                 name: 'Fun',

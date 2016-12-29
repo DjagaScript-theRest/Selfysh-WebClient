@@ -13,6 +13,7 @@ var router_1 = require("@angular/router");
 var common_1 = require("@angular/common");
 var forms_1 = require("@angular/forms");
 var post_list_component_1 = require("./post-list.component");
+var post_category_component_1 = require("./post-category.component");
 var post_service_1 = require("./post.service");
 var PostModule = (function () {
     function PostModule() {
@@ -25,11 +26,13 @@ PostModule = __decorate([
             common_1.CommonModule,
             forms_1.FormsModule,
             router_1.RouterModule.forChild([
-                { path: 'posts', component: post_list_component_1.PostListComponent }
+                { path: 'posts', component: post_list_component_1.PostListComponent },
+                { path: 'posts/:category', component: post_category_component_1.PostCategoryComponent }
             ])
         ],
         declarations: [
-            post_list_component_1.PostListComponent
+            post_list_component_1.PostListComponent,
+            post_category_component_1.PostCategoryComponent
         ],
         providers: [
             post_service_1.PostService

@@ -4,6 +4,6 @@ export interface IPost {
     imageUrl: string,
     likes: number,
     dislikes: number,
-    rating: number,
+    // rating: number,
     comments: string[]
 }
