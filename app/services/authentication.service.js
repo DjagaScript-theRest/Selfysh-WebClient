@@ -10,14 +10,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
+var http_headers_service_1 = require("./http-headers.service");
 require("rxjs/add/operator/map");
 var RegisterUrl = 'http://localhost:1337/api/auth/register';
 var LoginUrl = 'http://localhost:1337/api/auth/login';
 var GetLoggedUserUrl = 'http://localhost:1337/api/auth/getLoggedUser';
 var AuthToken = 'auth_token';
 var AuthenticationService = (function () {
-    function AuthenticationService(http) {
+    function AuthenticationService(http, httpHedersService) {
         this.http = http;
+        this.httpHedersService = httpHedersService;
         this.loggedIn = false;
     }
     AuthenticationService.prototype.register = function (userToRegister) {
@@ -51,8 +53,8 @@ var AuthenticationService = (function () {
         return this.loggedIn;
     };
     AuthenticationService.prototype.getLoggedUser = function () {
-        var headers = this.createAuthorizationHeader();
-        var options = new http_1.RequestOptions({ headers: headers });
+        var token = localStorage.getItem(AuthToken);
+        var options = this.httpHedersService.getHeaders(token);
         return this.http.get(GetLoggedUserUrl, options)
             .map(function (res) {
             var body = res.json();
@@ -62,17 +64,12 @@ var AuthenticationService = (function () {
             };
         });
     };
-    AuthenticationService.prototype.createAuthorizationHeader = function () {
-        var headers = new http_1.Headers({ 'Content-type': 'application/json' });
-        var authToken = localStorage.getItem(AuthToken);
-        headers.append('Authorization', authToken);
-        return headers;
-    };
     return AuthenticationService;
 }());
 AuthenticationService = __decorate([
     core_1.Injectable(),
-    __metadata("design:paramtypes", [http_1.Http])
+    __metadata("design:paramtypes", [http_1.Http,
+        http_headers_service_1.HttpHeadersService])
 ], AuthenticationService);
 exports.AuthenticationService = AuthenticationService;
 //# sourceMappingURL=authentication.service.js.map

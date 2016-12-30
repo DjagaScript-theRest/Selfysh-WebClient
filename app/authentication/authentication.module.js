@@ -13,7 +13,7 @@ var common_1 = require("@angular/common");
 var forms_1 = require("@angular/forms");
 var login_component_1 = require("./login/login.component");
 var register_component_1 = require("./register/register.component");
-var authentication_service_1 = require("./authentication.service");
+var authentication_service_1 = require("../services/authentication.service");
 var AuthenticationModule = (function () {
     function AuthenticationModule() {
     }

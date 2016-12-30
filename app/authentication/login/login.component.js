@@ -11,7 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 var forms_1 = require("@angular/forms");
 var router_1 = require("@angular/router");
-var authentication_service_1 = require("../authentication.service");
+var authentication_service_1 = require("../../services/authentication.service");
 var LoginComponent = (function () {
     function LoginComponent(fb, _authService, _router) {
         this.fb = fb;

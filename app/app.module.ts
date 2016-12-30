@@ -9,7 +9,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { PostModule } from './posts/post.module';
 import { CoreModule } from './core/core.module';
-
+import { HttpHeadersService } from './services/http-headers.service'
 @NgModule({
     declarations: [
         AppComponent,
@@ -24,7 +24,7 @@ import { CoreModule } from './core/core.module';
         PostModule,
         CoreModule
     ],
-    providers: [],
+    providers: [HttpHeadersService],
     bootstrap: [
         AppComponent
     ]

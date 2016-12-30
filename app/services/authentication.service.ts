@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
+import { HttpHeadersService } from './http-headers.service'
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
 
@@ -13,7 +14,10 @@ export class AuthenticationService {
 
     private loggedIn: boolean = false;
 
-    constructor(private http: Http) {
+    constructor(
+        private http: Http,
+        private httpHedersService: HttpHeadersService
+    ) {
 
     }
 
@@ -52,8 +56,8 @@ export class AuthenticationService {
     }
 
     getLoggedUser(): Observable<any> {
-        let headers = this.createAuthorizationHeader();
-        let options = new RequestOptions({ headers: headers });
+        let token = localStorage.getItem(AuthToken);
+        let options = this.httpHedersService.getHeaders(token);
 
         return this.http.get(GetLoggedUserUrl, options)
             .map((res: Response) => {
@@ -64,12 +68,4 @@ export class AuthenticationService {
                 }
             })
     }
-
-    createAuthorizationHeader(): Headers {
-        let headers = new Headers({ 'Content-type': 'application/json' });
-        let authToken = localStorage.getItem(AuthToken);
-        headers.append('Authorization', authToken);
-        return headers;
-    }
-
 }

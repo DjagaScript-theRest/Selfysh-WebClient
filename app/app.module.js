@@ -18,6 +18,7 @@ var app_component_1 = require("./app.component");
 var app_routing_module_1 = require("./app-routing.module");
 var post_module_1 = require("./posts/post.module");
 var core_module_1 = require("./core/core.module");
+var http_headers_service_1 = require("./services/http-headers.service");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -37,7 +38,7 @@ AppModule = __decorate([
             post_module_1.PostModule,
             core_module_1.CoreModule
         ],
-        providers: [],
+        providers: [http_headers_service_1.HttpHeadersService],
         bootstrap: [
             app_component_1.AppComponent
         ]
