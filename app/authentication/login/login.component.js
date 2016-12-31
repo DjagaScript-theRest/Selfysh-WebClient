@@ -30,6 +30,7 @@ var LoginComponent = (function () {
         this._authService.login(this.userToLogin.value)
             .subscribe(function (res) {
             _this._router.navigateByUrl('/home');
+            location.reload();
         }, function (err) {
             var notificationMsg = JSON.parse(err._body).message;
             _this.error = true;

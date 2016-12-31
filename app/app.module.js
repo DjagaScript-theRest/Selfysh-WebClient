@@ -14,7 +14,7 @@ var forms_1 = require("@angular/forms");
 var http_1 = require("@angular/http");
 var authentication_module_1 = require("./authentication/authentication.module");
 var app_component_1 = require("./app.component");
-// import { HomeComponent } from './home/home.component'
+var home_component_1 = require("./home/home.component");
 var app_routing_module_1 = require("./app-routing.module");
 var post_module_1 = require("./posts/post.module");
 var core_module_1 = require("./core/core.module");
@@ -31,6 +31,7 @@ AppModule = __decorate([
     core_1.NgModule({
         declarations: [
             app_component_1.AppComponent,
+            home_component_1.HomeComponent
         ],
         imports: [
             platform_browser_1.BrowserModule,

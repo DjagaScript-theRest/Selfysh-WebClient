@@ -32,7 +32,7 @@ var UserService = (function () {
             var body = res.json();
             return {
                 status: res.status,
-                body: body
+                user: body.user
             };
         });
     };

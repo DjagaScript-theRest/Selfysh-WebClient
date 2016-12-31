@@ -27,7 +27,8 @@ export class LoginComponent implements OnInit {
     login(): void {
         this._authService.login(this.userToLogin.value)
             .subscribe((res: any) => {
-                this._router.navigateByUrl('/home');
+               this._router.navigateByUrl('/home')
+               location.reload();
             },
             (err: any) => {
                 let notificationMsg = JSON.parse(err._body).message;

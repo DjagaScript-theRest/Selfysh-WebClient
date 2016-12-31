@@ -6,6 +6,7 @@ import 'rxjs/add/operator/map';
 
 const RegisterUrl: string = 'http://localhost:1337/api/auth/register';
 const LoginUrl: string = 'http://localhost:1337/api/auth/login';
+const LogoutUrl: string = 'http://localhost:1337/api/auth/logout';
 const GetLoggedUser: string = 'http://localhost:1337/api/auth/getLoggedUser';
 const AuthToken: string = 'auth_token';
 @Injectable()
@@ -45,8 +46,9 @@ export class AuthenticationService {
             })
     }
 
-    logout(): void {
+    logout(): Observable<Response> {
         localStorage.removeItem(AuthToken);
         this.loggedIn = false;
+        return this.http.post(LogoutUrl, '');
     }
 }

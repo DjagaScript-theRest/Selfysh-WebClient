@@ -9,10 +9,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var user_service_1 = require("../../services/user-service");
+var authentication_service_1 = require("../../services/authentication.service");
+var router_1 = require("@angular/router");
 var NavComponent = (function () {
-    function NavComponent() {
+    function NavComponent(userService, authService, router) {
+        this.userService = userService;
+        this.authService = authService;
+        this.router = router;
+        this.user = null;
+        this.logoutUrl = 'http://localhost:1337/api/auth/logout';
     }
     NavComponent.prototype.ngOnInit = function () {
+        var _this = this;
         this.menuItems = [{
                 name: 'Home',
                 link: ['/home'],
@@ -50,6 +59,13 @@ var NavComponent = (function () {
                 link: ['/weekly-challenge'],
                 children: null
             }];
+        this.userService
+            .getLoggedUser()
+            .subscribe(function (x) { return _this.user = x.user; });
+    };
+    NavComponent.prototype.logout = function () {
+        this.authService.logout()
+            .subscribe(function () { return location.reload(); });
     };
     return NavComponent;
 }());
@@ -59,7 +75,9 @@ NavComponent = __decorate([
         selector: 'selfysh-nav',
         templateUrl: 'nav.component.html'
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [user_service_1.UserService,
+        authentication_service_1.AuthenticationService,
+        router_1.Router])
 ], NavComponent);
 exports.NavComponent = NavComponent;
 //# sourceMappingURL=nav.component.js.map

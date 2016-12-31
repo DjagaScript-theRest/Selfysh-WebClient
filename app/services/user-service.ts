@@ -32,7 +32,7 @@ export class UserService {
                 let body = res.json();
                 return {
                     status: res.status,
-                    body: body
+                    user: body.user
                 }
             })
     }
@@ -51,9 +51,6 @@ export class UserService {
                 }
                 return false;
             })
-    }
-
-
+    }    
 }
 
-}

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core'
 import { Http } from '@angular/http';
 import { IUser } from './user';
 import { UserService } from '../services/user-service';
+import {AuthenticationService} from'../services/authentication.service';
 
 @Component({
     templateUrl: 'app/profile/profile.component.html',

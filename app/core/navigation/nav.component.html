@@ -37,8 +37,25 @@
                         </form>
                     </div>
                 </div>
-                <div class="module widget-handle user-profile right">
-                    <a class="btn btn-filled" href="#">Sign up</a>
+                <div class="module left no-padding" *ngIf="user">                    
+                        <ul class="menu">
+                            <li>
+                                <a href="/profile">
+                                    <img src="http://telerikacademy.com/Content/Avatars/560/38560_3e73f64d_32x32.jpg" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <div class="module widget-handle left">
+                                    <a class="btn btn-filled" (click)='logout()'>SIGN OUT</a>
+                                </div>
+                            </li>
+                        
+                    </ul>
+
+                </div>
+
+                <div class="module widget-handle left" *ngIf="!user">
+                    <a class="btn btn-filled" href="/login">Sign up</a>
                 </div>
             </div>
         </div>
