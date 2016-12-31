@@ -19,6 +19,9 @@ var app_routing_module_1 = require("./app-routing.module");
 var post_module_1 = require("./posts/post.module");
 var core_module_1 = require("./core/core.module");
 var http_headers_service_1 = require("./services/http-headers.service");
+var user_service_1 = require("./services/user-service");
+var is_loggedIn_guard_1 = require("./guards/is-loggedIn.guard");
+var profile_module_1 = require("./profile/profile.module");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -36,9 +39,14 @@ AppModule = __decorate([
             authentication_module_1.AuthenticationModule,
             app_routing_module_1.AppRoutingModule,
             post_module_1.PostModule,
-            core_module_1.CoreModule
+            core_module_1.CoreModule,
+            profile_module_1.ProfileModule
         ],
-        providers: [http_headers_service_1.HttpHeadersService],
+        providers: [
+            http_headers_service_1.HttpHeadersService,
+            is_loggedIn_guard_1.GuardIsLoggedUser,
+            user_service_1.UserService
+        ],
         bootstrap: [
             app_component_1.AppComponent
         ]

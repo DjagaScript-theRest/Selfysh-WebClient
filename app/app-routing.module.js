@@ -12,12 +12,15 @@ var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var register_component_1 = require("./authentication/register/register.component");
 var login_component_1 = require("./authentication/login/login.component");
+var is_loggedIn_guard_1 = require("./guards/is-loggedIn.guard");
+var profile_component_1 = require("./profile/profile.component");
 //import { UserComponent } from './components/user/user.component';
 //import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 var routes = [
     { path: 'register', component: register_component_1.RegisterComponent },
     { path: 'login', component: login_component_1.LoginComponent },
-    { path: '', redirectTo: '/posts', pathMatch: 'full' }
+    { path: '', redirectTo: '/posts', pathMatch: 'full' },
+    { path: 'profile', canActivate: [is_loggedIn_guard_1.GuardIsLoggedUser], component: profile_component_1.ProfileComponent }
 ];
 var AppRoutingModule = (function () {
     function AppRoutingModule() {

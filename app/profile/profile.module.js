@@ -9,6 +9,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var router_1 = require("@angular/router");
+var http_1 = require("@angular/http");
+var platform_browser_1 = require("@angular/platform-browser");
+var forms_1 = require("@angular/forms");
+var user_service_1 = require("../services/user-service");
+var profile_component_1 = require("./profile.component");
 var ProfileModule = (function () {
     function ProfileModule() {
     }
@@ -16,10 +22,18 @@ var ProfileModule = (function () {
 }());
 ProfileModule = __decorate([
     core_1.NgModule({
-        declarations: [],
-        imports: [],
+        declarations: [profile_component_1.ProfileComponent],
+        imports: [
+            router_1.RouterModule,
+            http_1.HttpModule,
+            platform_browser_1.BrowserModule,
+            forms_1.FormsModule,
+            forms_1.ReactiveFormsModule
+        ],
         exports: [],
-        providers: []
+        providers: [
+            user_service_1.UserService
+        ]
     }),
     __metadata("design:paramtypes", [])
 ], ProfileModule);

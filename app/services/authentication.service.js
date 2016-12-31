@@ -14,7 +14,7 @@ var http_headers_service_1 = require("./http-headers.service");
 require("rxjs/add/operator/map");
 var RegisterUrl = 'http://localhost:1337/api/auth/register';
 var LoginUrl = 'http://localhost:1337/api/auth/login';
-var GetLoggedUserUrl = 'http://localhost:1337/api/auth/getLoggedUser';
+var GetLoggedUser = 'http://localhost:1337/api/auth/getLoggedUser';
 var AuthToken = 'auth_token';
 var AuthenticationService = (function () {
     function AuthenticationService(http, httpHedersService) {
@@ -48,21 +48,6 @@ var AuthenticationService = (function () {
     AuthenticationService.prototype.logout = function () {
         localStorage.removeItem(AuthToken);
         this.loggedIn = false;
-    };
-    AuthenticationService.prototype.isLoggedIn = function () {
-        return this.loggedIn;
-    };
-    AuthenticationService.prototype.getLoggedUser = function () {
-        var token = localStorage.getItem(AuthToken);
-        var options = this.httpHedersService.getHeaders(token);
-        return this.http.get(GetLoggedUserUrl, options)
-            .map(function (res) {
-            var body = res.json();
-            return {
-                status: res.status,
-                body: body
-            };
-        });
     };
     return AuthenticationService;
 }());

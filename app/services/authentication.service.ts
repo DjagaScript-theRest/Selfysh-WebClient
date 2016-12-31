@@ -6,9 +6,8 @@ import 'rxjs/add/operator/map';
 
 const RegisterUrl: string = 'http://localhost:1337/api/auth/register';
 const LoginUrl: string = 'http://localhost:1337/api/auth/login';
-const GetLoggedUserUrl: string = 'http://localhost:1337/api/auth/getLoggedUser';
+const GetLoggedUser: string = 'http://localhost:1337/api/auth/getLoggedUser';
 const AuthToken: string = 'auth_token';
-
 @Injectable()
 export class AuthenticationService {
 
@@ -49,23 +48,5 @@ export class AuthenticationService {
     logout(): void {
         localStorage.removeItem(AuthToken);
         this.loggedIn = false;
-    }
-
-    isLoggedIn(): boolean {
-        return this.loggedIn;
-    }
-
-    getLoggedUser(): Observable<any> {
-        let token = localStorage.getItem(AuthToken);
-        let options = this.httpHedersService.getHeaders(token);
-
-        return this.http.get(GetLoggedUserUrl, options)
-            .map((res: Response) => {
-                let body = res.json();
-                return {
-                    status: res.status,
-                    body: body
-                }
-            })
     }
 }

@@ -10,6 +10,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { PostModule } from './posts/post.module';
 import { CoreModule } from './core/core.module';
 import { HttpHeadersService } from './services/http-headers.service'
+import { UserService } from './services/user-service'
+import { GuardIsLoggedUser } from './guards/is-loggedIn.guard';
+import { ProfileModule } from './profile/profile.module'
 @NgModule({
     declarations: [
         AppComponent,
@@ -22,9 +25,14 @@ import { HttpHeadersService } from './services/http-headers.service'
         AuthenticationModule,
         AppRoutingModule,
         PostModule,
-        CoreModule
+        CoreModule,
+        ProfileModule
     ],
-    providers: [HttpHeadersService],
+    providers: [
+        HttpHeadersService,
+        GuardIsLoggedUser,
+        UserService
+    ],
     bootstrap: [
         AppComponent
     ]

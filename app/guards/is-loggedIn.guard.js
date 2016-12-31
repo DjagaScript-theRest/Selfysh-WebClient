@@ -9,25 +9,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var router_1 = require("@angular/router");
 var user_service_1 = require("../services/user-service");
-var ProfileComponent = (function () {
-    function ProfileComponent(userService) {
-        this.userService = userService;
+var GuardIsLoggedUser = (function () {
+    function GuardIsLoggedUser(authService, router) {
+        this.router = router;
+        this.userService = authService;
     }
-    ProfileComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.userService
-            .getLoggedUser()
-            .subscribe(function (res) { _this.user = res.user; });
+    GuardIsLoggedUser.prototype.canActivate = function () {
+        return this.userService.isLoggedIn();
     };
-    return ProfileComponent;
+    return GuardIsLoggedUser;
 }());
-ProfileComponent = __decorate([
-    core_1.Component({
-        templateUrl: 'app/profile/profile.component.html',
-        styleUrls: ['app/profile/profile.component.css']
-    }),
-    __metadata("design:paramtypes", [user_service_1.UserService])
-], ProfileComponent);
-exports.ProfileComponent = ProfileComponent;
-//# sourceMappingURL=profile.component.js.map
+GuardIsLoggedUser = __decorate([
+    core_1.Injectable(),
+    __metadata("design:paramtypes", [user_service_1.UserService, router_1.Router])
+], GuardIsLoggedUser);
+exports.GuardIsLoggedUser = GuardIsLoggedUser;
+//# sourceMappingURL=is-loggedIn.guard.js.map
