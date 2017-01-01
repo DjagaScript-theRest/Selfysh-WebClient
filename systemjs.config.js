@@ -1,7 +1,7 @@
-    /**
- * System configuration for Angular 2 samples
- * Adjust as necessary for your application needs.
- */
+/**
+* System configuration for Angular 2 samples
+* Adjust as necessary for your application needs.
+*/
 (function (global) {
   System.config({
     paths: {
@@ -24,7 +24,8 @@
       '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',
 
       // other libraries
-      'rxjs': 'npm:rxjs'
+      'rxjs': 'npm:rxjs',
+      'ng2-file-upload': './node_modules/ng2-file-upload/bundles/ng2-file-upload.umd.js'
     },
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {
