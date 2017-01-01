@@ -1,0 +1,14 @@
+<form>
+    <div class="form-group">
+        <label for="single">Share your selfie</label>
+        <input type="file" class="form-control" name="single" ng2FileSelect [uploader]="uploader" />
+    </div>
+    <div>
+        <button type="button" class="btn btn-success btn-xs" (click)="uploadImage()">
+            <span class="glyphicon glyphicon-upload"></span> Uplaod
+        </button>
+        <button type="button" class="btn btn-danger btn-xs" (click)="removeImage()">
+            <span class="glyphicon glyphicon-trash"></span> Remove
+        </button>
+    </div>
+</form>
