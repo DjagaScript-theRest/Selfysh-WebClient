@@ -15,6 +15,6 @@ export class PostUploadComponent {
     }
 
     public removeImage(): void {
-        console.log(this.uploader.queue[0].isUploaded);
+        this.uploader.clearQueue();
     }
 }

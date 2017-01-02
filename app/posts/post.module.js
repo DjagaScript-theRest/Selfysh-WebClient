@@ -16,7 +16,8 @@ var ng2_file_upload_1 = require("ng2-file-upload");
 var post_list_component_1 = require("./post-list.component");
 var post_category_component_1 = require("./post-category.component");
 var post_upload_component_1 = require("./shared/post-upload.component");
-var post_create_component_1 = require("./post-create/post-create.component");
+var post_component_1 = require("./post/post.component");
+var init_caps_pipe_1 = require("./shared/init-caps.pipe");
 var post_service_1 = require("./post.service");
 var PostModule = (function () {
     function PostModule() {
@@ -29,7 +30,7 @@ PostModule = __decorate([
             common_1.CommonModule,
             forms_1.FormsModule,
             router_1.RouterModule.forChild([
-                { path: 'posts/create', component: post_create_component_1.PostCreateComponent },
+                { path: 'posts/create', component: post_component_1.PostCreateComponent },
                 { path: 'posts', component: post_list_component_1.PostListComponent },
                 { path: 'posts/:category', component: post_category_component_1.PostCategoryComponent }
             ])
@@ -37,9 +38,10 @@ PostModule = __decorate([
         declarations: [
             post_list_component_1.PostListComponent,
             post_category_component_1.PostCategoryComponent,
-            post_create_component_1.PostCreateComponent,
+            post_component_1.PostCreateComponent,
             post_upload_component_1.PostUploadComponent,
-            ng2_file_upload_1.FileSelectDirective
+            ng2_file_upload_1.FileSelectDirective,
+            init_caps_pipe_1.InitCapsPipe
         ],
         providers: [
             post_service_1.PostService

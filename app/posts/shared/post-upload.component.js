@@ -18,7 +18,7 @@ var PostUploadComponent = (function () {
         this.uploader.uploadAll();
     };
     PostUploadComponent.prototype.removeImage = function () {
-        console.log(this.uploader.queue[0].isUploaded);
+        this.uploader.clearQueue();
     };
     return PostUploadComponent;
 }());

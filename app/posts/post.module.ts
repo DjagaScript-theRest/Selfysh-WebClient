@@ -8,7 +8,8 @@ import { FileSelectDirective, FileDropDirective } from 'ng2-file-upload';
 import { PostListComponent } from './post-list.component';
 import { PostCategoryComponent } from './post-category.component';
 import { PostUploadComponent } from './shared/post-upload.component';
-import { PostCreateComponent } from './post-create/post-create.component';
+import { PostCreateComponent } from './post/post.component';
+import { InitCapsPipe } from './shared/init-caps.pipe';
 
 import { PostService } from './post.service';
 
@@ -27,7 +28,8 @@ import { PostService } from './post.service';
         PostCategoryComponent,
         PostCreateComponent,
         PostUploadComponent,
-        FileSelectDirective
+        FileSelectDirective,
+        InitCapsPipe
     ],
     providers: [
         PostService
