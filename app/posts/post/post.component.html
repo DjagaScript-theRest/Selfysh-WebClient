@@ -1,0 +1,15 @@
+<h1>PFFF</h1>
+<article>
+    <post-upload></post-upload>
+    <form (submit)="createPost()">
+        <label for="">Title</label>
+        <input type="text" id="post-title" />
+        <label for="">Category</label>
+        <select id="post-category" name="category" [(ngModel)]="selectedCategory">
+            <option *ngFor="let category of categories" [ngValue]="category">
+                {{ category | initCaps}}
+            </option>
+        </select>
+        <input type="submit" value="Post">
+    </form>
+</article>
