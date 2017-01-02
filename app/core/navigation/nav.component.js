@@ -33,12 +33,36 @@ var NavComponent = (function () {
                 name: 'Category',
                 link: [''],
                 children: [{
-                        name: 'Bitches',
-                        link: ['/posts/bitches'],
+                        name: 'Kifla',
+                        link: ['/posts/kifla'],
                         children: null
                     }, {
                         name: 'Fun',
-                        link: ['/fun'],
+                        link: ['/posts/fun'],
+                        children: null
+                    }, {
+                        name: 'Chilling',
+                        link: ['/posts/chilling'],
+                        children: null
+                    }, {
+                        name: 'Crazy',
+                        link: ['/posts/crazy'],
+                        children: null
+                    }, {
+                        name: 'Extreme',
+                        link: ['/posts/extreme'],
+                        children: null
+                    }, {
+                        name: 'Party',
+                        link: ['/posts/party'],
+                        children: null
+                    }, {
+                        name: 'Celebration',
+                        link: ['/posts/celebration'],
+                        children: null
+                    }, {
+                        name: 'Other',
+                        link: ['/posts/other'],
                         children: null
                     }]
             }, {

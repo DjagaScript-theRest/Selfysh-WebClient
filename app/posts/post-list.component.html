@@ -1,45 +1,60 @@
-<div class="row" *ngFor='let post of posts'>
-    <div class="col-xs-12 col-md-6">
-        <div class="post-snippet" style="width: 100%">
-            <div class="post-title">
-                <h2>{{post.title}}</h2>
+<div class="module widget-handle search-widget-handle right" style="margin-top:70px;">
+    <div class="search">
+        <i class="ti-search"></i>
+        <span class="title">Search Site</span>
+    </div>
+    <div class="function">
+        <form class="search-form">
+            <input type="text" placeholder="Type Here" [(ngModel)]="searchList" name="search" />
+        </form>
+    </div>
+</div>
+<div class="container">
+    <div class="row" *ngFor='let post of posts | searchPipe:searchList'>
+        <div class="col-xs-12 col-md-6">
+            <div class="post-snippet" style="width: 100%">
+                <div class="post-title">
+                    <a [routerLink]="['/post', post._id]">
+                    <h2>{{post.title}}</h2>
+                    </a>
+                </div>
+                <div class="post-image" style="width: 100%">
+                    <img [src]='post.imageUrl' alt="Image" style="width: 100%">
+                </div>
+                <ul class="post-meta">
+                    <li>
+                        <a href="">
+                            <i class="ti-user">{{post.author}}</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <i class="ti-thumb-up">{{post.likes}}</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <i class="ti-thumb-down">{{post.dislikes}}</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <i class="ti-comment">{{post.comments.length}}</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <i class="ti-facebook">Share</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <i class="ti-twitter">Share</i>
+                        </a>
+                    </li>
+                </ul>
             </div>
-            <div class="post-image" style="width: 100%">
-                <img [src]='post.imageUrl' alt="Image" style="width: 100%">
-            </div>
-            <ul class="post-meta">
-                <li>
-                    <a href="">
-                        <i class="ti-user">{{post.author}}</i>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <i class="ti-thumb-up">{{post.likes}}</i>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <i class="ti-thumb-down">{{post.dislikes}}</i>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <i class="ti-comment">{{post.comments.length}}</i>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <i class="ti-facebook">Share</i>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <i class="ti-twitter">Share</i>
-                    </a>
-                </li>
-            </ul>
+            <hr>
         </div>
-        <hr>
     </div>
 </div>

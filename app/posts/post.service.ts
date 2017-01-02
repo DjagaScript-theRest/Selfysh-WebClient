@@ -25,4 +25,9 @@ export class PostService {
             .map((response: Response) => <IPost[]>response.json())
             .do(data => console.log('All: ' + JSON.stringify(data)))
     }
+
+    getPostById(id: string): Observable<IPost> {
+        return this.getPosts()
+            .map((posts: IPost[]) => posts.find(p => p._id === id));
+    }
 }

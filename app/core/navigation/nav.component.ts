@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
 import { MenuItem } from './menu-item.js';
-import { UserService } from '../../services/user-service'
-import { AuthenticationService } from '../../services/authentication.service'
-import { Router } from '@angular/router'
-import { Constants } from '../../constants/constants'
-import 'rxjs/Rx'
+import { UserService } from '../../services/user-service';
+import { AuthenticationService } from '../../services/authentication.service';
+import { Router } from '@angular/router';
+import { Constants } from '../../constants/constants';
+import 'rxjs/Rx';
+
 @Component({
     moduleId: module.id,
     selector: 'selfysh-nav',
@@ -32,12 +33,36 @@ export class NavComponent implements OnInit {
             name: 'Category',
             link: [''],
             children: [{
-                name: 'Bitches',
-                link: ['/posts/bitches'],
+                name: 'Kifla',
+                link: ['/posts/kifla'],
                 children: null
             }, {
                 name: 'Fun',
-                link: ['/fun'],
+                link: ['/posts/fun'],
+                children: null
+            }, {
+                name: 'Chilling',
+                link: ['/posts/chilling'],
+                children: null
+            }, {
+                name: 'Crazy',
+                link: ['/posts/crazy'],
+                children: null
+            }, {
+                name: 'Extreme',
+                link: ['/posts/extreme'],
+                children: null
+            }, {
+                name: 'Party',
+                link: ['/posts/party'],
+                children: null
+            }, {
+                name: 'Celebration',
+                link: ['/posts/celebration'],
+                children: null
+            }, {
+                name: 'Other',
+                link: ['/posts/other'],
                 children: null
             }]
         }, {
