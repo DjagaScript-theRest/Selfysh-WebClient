@@ -12,6 +12,8 @@ var core_1 = require("@angular/core");
 var user_service_1 = require("../../services/user-service");
 var authentication_service_1 = require("../../services/authentication.service");
 var router_1 = require("@angular/router");
+var constants_1 = require("../../constants/constants");
+require("rxjs/Rx");
 var NavComponent = (function () {
     function NavComponent(userService, authService, router) {
         this.userService = userService;
@@ -19,6 +21,7 @@ var NavComponent = (function () {
         this.router = router;
         this.user = null;
         this.logoutUrl = 'http://localhost:1337/api/auth/logout';
+        this.imagesUrl = constants_1.Constants.imagesUrl;
     }
     NavComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -61,7 +64,10 @@ var NavComponent = (function () {
             }];
         this.userService
             .getLoggedUser()
-            .subscribe(function (x) { return _this.user = x.user; });
+            .toPromise()
+            .then(function (x) {
+            _this.user = x.user;
+        });
     };
     NavComponent.prototype.logout = function () {
         this.authService.logout()

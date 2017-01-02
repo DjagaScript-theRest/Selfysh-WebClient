@@ -10,15 +10,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var user_service_1 = require("../services/user-service");
+var constants_1 = require("./../constants/constants");
 var ProfileComponent = (function () {
     function ProfileComponent(userService) {
-        this.userService = userService;
-    }
-    ProfileComponent.prototype.ngOnInit = function () {
         var _this = this;
+        this.userService = userService;
+        // public cover= "https://pbs.twimg.com/profile_banners/50988711/1384539792/600x200";
+        this.imagesUrl = constants_1.Constants.imagesUrl;
         this.userService
             .getLoggedUser()
-            .subscribe(function (res) { _this.user = res.user; });
+            .toPromise()
+            .then(function (x) {
+            _this.user = x.user;
+            console.log(x);
+        });
+    }
+    ProfileComponent.prototype.ngOnInit = function () {
     };
     return ProfileComponent;
 }());

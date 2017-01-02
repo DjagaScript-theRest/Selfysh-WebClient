@@ -4,7 +4,8 @@ import { MenuItem } from './menu-item.js';
 import { UserService } from '../../services/user-service'
 import { AuthenticationService } from '../../services/authentication.service'
 import { Router } from '@angular/router'
-
+import { Constants } from '../../constants/constants'
+import 'rxjs/Rx'
 @Component({
     moduleId: module.id,
     selector: 'selfysh-nav',
@@ -14,6 +15,7 @@ export class NavComponent implements OnInit {
     public menuItems: MenuItem[];
     public user: any = null;
     public logoutUrl = 'http://localhost:1337/api/auth/logout';
+    public imagesUrl = Constants.imagesUrl;
 
     constructor(private userService: UserService,
         private authService: AuthenticationService,
@@ -61,12 +63,14 @@ export class NavComponent implements OnInit {
         }];
         this.userService
             .getLoggedUser()
-            .subscribe(x => this.user = x.user);
-
+            .toPromise()
+            .then(x => {
+                this.user = x.user
+            });
     }
 
     public logout() {
         this.authService.logout()
-        .subscribe(()=> location.reload())
+            .subscribe(() => location.reload())
     }
 }
