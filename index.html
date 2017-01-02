@@ -7,12 +7,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet"  media="all"/>
+    <link href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" media="all" />
     <link rel="stylesheet" href="./app/assets/css/themify-icons.css">
     <link rel="stylesheet" href="./app/assets/css/theme.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <script src="node_modules/core-js/client/shim.min.js"></script>
+    <style>
+        #loading-image {
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
 
     <script src="node_modules/zone.js/dist/zone.js"></script>
     <script src="node_modules/reflect-metadata/Reflect.js"></script>
@@ -25,10 +31,10 @@
 </head>
 
 <body>
-    <selfysh-app>Loading...</selfysh-app>
+    <selfysh-app><img id="loading-image" src="http://iamchriscollins.com/loading.gif" alt=""></selfysh-app>
 
     <script src="./app/assets/js/jquery.min.js"></script>
-    <script src="./app/assets/js/scripts.js"></script>  
+    <script src="./app/assets/js/scripts.js"></script>
 
 
 </body>

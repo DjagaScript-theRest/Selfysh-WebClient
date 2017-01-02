@@ -15,6 +15,7 @@ var HttpHeadersService = (function () {
     }
     HttpHeadersService.prototype.getHeaders = function (token) {
         var headersObject = {};
+        headersObject['Content-Type'] = 'application/json';
         if (token) {
             headersObject['Authorization'] = token;
         }

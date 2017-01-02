@@ -4,9 +4,10 @@ import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 
 import { HttpHeadersService } from './http-headers.service';
+import { Constants } from './../constants/constants';
 
-const UserByIdUrl: string = 'http://localhost:1337/api/users/user';
-const GetLoggedUserUrl: string = 'http://localhost:1337/api/auth/getLoggedUser';
+const UserByIdUrl: string = Constants.hostUrl + 'api/users/user/';
+const GetLoggedUserUrl: string = Constants.hostUrl + 'api/auth/getLoggedUser';
 const AuthToken: string = 'auth_token';
 
 
@@ -38,7 +39,7 @@ export class UserService {
     }
 
 
-    public isLoggedIn():Observable<boolean> {
+    public isLoggedIn(): Observable<boolean> {
         let userDataString: string = localStorage.getItem(AuthToken);
         if (!userDataString) {
             return Observable.of(false);
@@ -51,6 +52,16 @@ export class UserService {
                 }
                 return false;
             })
-    }    
+    }
+
+    public updateSettings(id: any, settings: any) {
+        let token = localStorage.getItem(AuthToken);
+        let options = this.httpHeadersService.getHeaders(token);
+        console.log(options)
+        return this.http.put(`${UserByIdUrl}${id}`, JSON.stringify(settings), options)
+            .map((res: Response) => {
+                return {status: res.status, body: res.json()}
+            })
+    }
 }
 

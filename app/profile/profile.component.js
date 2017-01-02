@@ -15,7 +15,6 @@ var ProfileComponent = (function () {
     function ProfileComponent(userService) {
         var _this = this;
         this.userService = userService;
-        // public cover= "https://pbs.twimg.com/profile_banners/50988711/1384539792/600x200";
         this.imagesUrl = constants_1.Constants.imagesUrl;
         this.userService
             .getLoggedUser()
