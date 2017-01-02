@@ -6,11 +6,12 @@ import { FormsModule } from '@angular/forms';
 import { FileSelectDirective, FileDropDirective } from 'ng2-file-upload';
 
 import { PostListComponent } from './post-list.component';
+import {PostDetailsComponent} from './post-details.component';
 import { PostCategoryComponent } from './post-category.component';
 import { PostUploadComponent } from './shared/post-upload.component';
 import { PostCreateComponent } from './post/post.component';
 import { InitCapsPipe } from './shared/init-caps.pipe';
-import {SearchPipe} from './search.pipe';
+import { SearchPipe } from './search.pipe';
 
 import { PostService } from './post.service';
 
@@ -21,11 +22,13 @@ import { PostService } from './post.service';
         RouterModule.forChild([
             { path: 'posts/create', component: PostCreateComponent },
             { path: 'posts', component: PostListComponent },
-            { path: 'posts/:category', component: PostCategoryComponent }
+            { path: 'posts/:category', component: PostCategoryComponent },
+            { path: 'post/:id', component: PostDetailsComponent }
         ])
     ],
     declarations: [
         PostListComponent,
+        PostDetailsComponent,
         PostCategoryComponent,
         PostCreateComponent,
         PostUploadComponent,

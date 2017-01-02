@@ -1,4 +1,5 @@
 export interface IPost {
+    _id: String,
     title: String,
     author: String,
     imageUrl: String,

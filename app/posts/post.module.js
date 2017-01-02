@@ -14,6 +14,7 @@ var common_1 = require("@angular/common");
 var forms_1 = require("@angular/forms");
 var ng2_file_upload_1 = require("ng2-file-upload");
 var post_list_component_1 = require("./post-list.component");
+var post_details_component_1 = require("./post-details.component");
 var post_category_component_1 = require("./post-category.component");
 var post_upload_component_1 = require("./shared/post-upload.component");
 var post_component_1 = require("./post/post.component");
@@ -33,11 +34,13 @@ PostModule = __decorate([
             router_1.RouterModule.forChild([
                 { path: 'posts/create', component: post_component_1.PostCreateComponent },
                 { path: 'posts', component: post_list_component_1.PostListComponent },
-                { path: 'posts/:category', component: post_category_component_1.PostCategoryComponent }
+                { path: 'posts/:category', component: post_category_component_1.PostCategoryComponent },
+                { path: 'post/:id', component: post_details_component_1.PostDetailsComponent }
             ])
         ],
         declarations: [
             post_list_component_1.PostListComponent,
+            post_details_component_1.PostDetailsComponent,
             post_category_component_1.PostCategoryComponent,
             post_component_1.PostCreateComponent,
             post_upload_component_1.PostUploadComponent,

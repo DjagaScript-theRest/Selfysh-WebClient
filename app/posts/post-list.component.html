@@ -14,7 +14,9 @@
         <div class="col-xs-12 col-md-6">
             <div class="post-snippet" style="width: 100%">
                 <div class="post-title">
+                    <a [routerLink]="['/post', post._id]">
                     <h2>{{post.title}}</h2>
+                    </a>
                 </div>
                 <div class="post-image" style="width: 100%">
                     <img [src]='post.imageUrl' alt="Image" style="width: 100%">
