@@ -10,6 +10,7 @@ import { PostCategoryComponent } from './post-category.component';
 import { PostUploadComponent } from './shared/post-upload.component';
 import { PostCreateComponent } from './post/post.component';
 import { InitCapsPipe } from './shared/init-caps.pipe';
+import {SearchPipe} from './search.pipe';
 
 import { PostService } from './post.service';
 
@@ -29,7 +30,8 @@ import { PostService } from './post.service';
         PostCreateComponent,
         PostUploadComponent,
         FileSelectDirective,
-        InitCapsPipe
+        InitCapsPipe,
+        SearchPipe
     ],
     providers: [
         PostService

@@ -1,4 +1,4 @@
-<div class="nav-container">
+<div class="nav-container" style="height: 55px">
     <nav class="bg-dark fixed">
         <div class="nav-bar">
             <div class="module left">
@@ -26,17 +26,17 @@
                         </li>
                     </ul>
                 </div>
-                <div class="module widget-handle search-widget-handle left">
+                <!--<div class="module widget-handle search-widget-handle left">
                     <div class="search">
                         <i class="ti-search"></i>
                         <span class="title">Search Site</span>
                     </div>
                     <div class="function">
                         <form class="search-form">
-                            <input type="text" placeholder="Type Here" />
+                            <input type="text" placeholder="Type Here" [(ngModel)] = "searchList" name="search" />
                         </form>
                     </div>
-                </div>
+                </div>-->
                 <div class="module left no-padding" *ngIf="user">                    
                         <ul class="menu">
                             <li>

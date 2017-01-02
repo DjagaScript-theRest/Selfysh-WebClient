@@ -18,6 +18,7 @@ var post_category_component_1 = require("./post-category.component");
 var post_upload_component_1 = require("./shared/post-upload.component");
 var post_component_1 = require("./post/post.component");
 var init_caps_pipe_1 = require("./shared/init-caps.pipe");
+var search_pipe_1 = require("./search.pipe");
 var post_service_1 = require("./post.service");
 var PostModule = (function () {
     function PostModule() {
@@ -41,7 +42,8 @@ PostModule = __decorate([
             post_component_1.PostCreateComponent,
             post_upload_component_1.PostUploadComponent,
             ng2_file_upload_1.FileSelectDirective,
-            init_caps_pipe_1.InitCapsPipe
+            init_caps_pipe_1.InitCapsPipe,
+            search_pipe_1.SearchPipe
         ],
         providers: [
             post_service_1.PostService
