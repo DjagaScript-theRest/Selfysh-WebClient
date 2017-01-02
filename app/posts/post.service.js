@@ -28,6 +28,10 @@ var PostService = (function () {
             .map(function (response) { return response.json(); })
             .do(function (data) { return console.log('All: ' + JSON.stringify(data)); });
     };
+    PostService.prototype.getPostById = function (id) {
+        return this.getPosts()
+            .map(function (posts) { return posts.find(function (p) { return p._id === id; }); });
+    };
     return PostService;
 }());
 PostService = __decorate([

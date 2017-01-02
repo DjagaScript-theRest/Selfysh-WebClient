@@ -9,23 +9,38 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var router_1 = require("@angular/router");
 var post_service_1 = require("./post.service");
 var PostDetailsComponent = (function () {
-    function PostDetailsComponent(_postService) {
+    function PostDetailsComponent(_route, _postService) {
+        this._route = _route;
         this._postService = _postService;
     }
     PostDetailsComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this._postService.getPosts()
-            .subscribe(function (posts) { return _this.posts = posts; });
+        this.sub = this._route.params.subscribe(function (params) {
+            var id = params['id'];
+            _this.getPost(id);
+        });
+    };
+    PostDetailsComponent.prototype.ngOnDestroy = function () {
+        this.sub.unsubscribe();
+    };
+    PostDetailsComponent.prototype.getPost = function (id) {
+        var _this = this;
+        this._postService.getPostById(id).subscribe(function (post) { return _this.post = post; });
+    };
+    PostDetailsComponent.prototype.scrollDown = function () {
+        window.scrollTo(0, document.body.scrollHeight);
     };
     return PostDetailsComponent;
 }());
 PostDetailsComponent = __decorate([
     core_1.Component({
-        templateUrl: 'app/posts/post-details.component.html',
+        templateUrl: 'app/posts/post-details.component.html'
     }),
-    __metadata("design:paramtypes", [post_service_1.PostService])
+    __metadata("design:paramtypes", [router_1.ActivatedRoute,
+        post_service_1.PostService])
 ], PostDetailsComponent);
 exports.PostDetailsComponent = PostDetailsComponent;
 //# sourceMappingURL=post-details.component.js.map
