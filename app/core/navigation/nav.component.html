@@ -41,7 +41,8 @@
                         <ul class="menu">
                             <li>
                                 <a href="/profile">
-                                    <img [src]="imagesUrl + user.avatar" width="44px" height="33" alt="">
+                                    <img [src]="imagesUrl + user?.avatar" width="44px" height="33" alt="">
+                                    <span>{{user?.username}}</span>
                                 </a>
                             </li>
                             <li>

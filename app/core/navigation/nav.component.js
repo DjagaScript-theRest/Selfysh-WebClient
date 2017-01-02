@@ -13,6 +13,7 @@ var user_service_1 = require("../../services/user-service");
 var authentication_service_1 = require("../../services/authentication.service");
 var router_1 = require("@angular/router");
 var constants_1 = require("../../constants/constants");
+require("rxjs/Rx");
 var NavComponent = (function () {
     function NavComponent(userService, authService, router) {
         this.userService = userService;
@@ -63,9 +64,9 @@ var NavComponent = (function () {
             }];
         this.userService
             .getLoggedUser()
-            .subscribe(function (x) {
+            .toPromise()
+            .then(function (x) {
             _this.user = x.user;
-            console.log(x);
         });
     };
     NavComponent.prototype.logout = function () {

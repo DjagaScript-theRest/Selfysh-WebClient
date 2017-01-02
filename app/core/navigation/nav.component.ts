@@ -5,7 +5,7 @@ import { UserService } from '../../services/user-service'
 import { AuthenticationService } from '../../services/authentication.service'
 import { Router } from '@angular/router'
 import { Constants } from '../../constants/constants'
-
+import 'rxjs/Rx'
 @Component({
     moduleId: module.id,
     selector: 'selfysh-nav',
@@ -63,9 +63,9 @@ export class NavComponent implements OnInit {
         }];
         this.userService
             .getLoggedUser()
-            .subscribe(x => {
+            .toPromise()
+            .then(x => {
                 this.user = x.user
-                console.log(x)
             });
     }
 

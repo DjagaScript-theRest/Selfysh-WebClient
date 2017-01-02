@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core'
 import { Http } from '@angular/http';
 import { IUser } from './user';
 import { UserService } from '../services/user-service';
-import {AuthenticationService} from'../services/authentication.service';
+import { AuthenticationService } from '../services/authentication.service';
+import { Constants } from './../constants/constants'
 
 @Component({
     templateUrl: 'app/profile/profile.component.html',
@@ -11,11 +12,20 @@ import {AuthenticationService} from'../services/authentication.service';
 })
 export class ProfileComponent implements OnInit {
     public user: any;
-    constructor(private userService: UserService) { }
+    // public cover= "https://pbs.twimg.com/profile_banners/50988711/1384539792/600x200";
+    public imagesUrl = Constants.imagesUrl;
 
-    public ngOnInit(): void {
+    constructor(private userService: UserService) {
         this.userService
             .getLoggedUser()
-            .subscribe((res: any) => {this.user = res.user })
-}
+            .toPromise()
+            .then(x => {
+                this.user = x.user
+                console.log(x)
+            });
+    }
+
+    public ngOnInit(): void {
+
+    }
 }
