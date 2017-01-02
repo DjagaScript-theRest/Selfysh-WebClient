@@ -20,6 +20,7 @@ var PostDetailsComponent = (function () {
         var _this = this;
         this.sub = this._route.params.subscribe(function (params) {
             var id = params['id'];
+            _this.postUrl = 'http://localhost:1337/api/posts/' + id;
             _this.getPost(id);
         });
     };

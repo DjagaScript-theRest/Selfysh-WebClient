@@ -12,6 +12,8 @@ import { PostService } from './post.service';
 })
 export class PostDetailsComponent implements OnInit, OnDestroy {
     post: IPost;
+    // commentContent: string;
+    postUrl: string;
     private sub: Subscription;
 
     constructor(private _route: ActivatedRoute,
@@ -22,6 +24,7 @@ export class PostDetailsComponent implements OnInit, OnDestroy {
         this.sub = this._route.params.subscribe(
             params => {
                 let id = params['id'];
+                this.postUrl = 'http://localhost:1337/api/posts/'+ id;
                 this.getPost(id);
         });
     }
@@ -38,4 +41,7 @@ export class PostDetailsComponent implements OnInit, OnDestroy {
     scrollDown() {
         window.scrollTo(0,document.body.scrollHeight);
     }
+    // addComment() {
+    //     this._postService
+    // }
 }

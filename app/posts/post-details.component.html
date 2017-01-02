@@ -54,9 +54,11 @@
                 <hr>
             </ul>
         </div>
-        <form action="">
-            <textarea name="commentContent" id="comment-content" rows="3" placeholder="Type here" required></textarea>
+        <form [action]='postUrl' method='POST'>
+            <textarea name="commentContent" id="comment-content" rows="3" placeholder="Type here" value="gypsy"></textarea>
             <input type="submit" id="add-comment" value="Add Comment">
         </form>
+            <!--<textarea name="commentContent" id="comment-content" rows="3" placeholder="Type here" [(ngModel)]='commentContent'></textarea>
+            <div class="btn btn-filled" (click)='addComment()'>Post comment</div>-->
     </div>
 </div>
