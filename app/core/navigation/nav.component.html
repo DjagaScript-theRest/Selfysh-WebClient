@@ -16,7 +16,7 @@
                             <a href="" [routerLink]="item.link">
                                 {{item.name}}
                             </a>
-                            <ul class='has-dropdown' *ngIf="item.children">
+                            <ul *ngIf="item.children">
                                 <li *ngFor="let child of item.children">
                                     <a href="" [routerLink]="child.link">
                                         {{child.name}}
