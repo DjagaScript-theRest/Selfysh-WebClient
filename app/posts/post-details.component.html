@@ -32,9 +32,8 @@
         <div class="comments" *ngIf='post.comments'>
             <ul class="comments-list" *ngFor='let comment of post.comments'>
                 <li class="comments-list">
-                    <p>
-                        {{comment}}
-                    </p>
+                    <p><span class="uppercase">{{comment.commentUser}}</span> said:</p>
+                    <p>{{comment.commentContent}}</p>
                 </li>
                 <hr>
             </ul>

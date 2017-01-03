@@ -42,9 +42,10 @@ var PostService = (function () {
             return response.json();
         });
     };
-    PostService.prototype.addComment = function (url, comment) {
+    PostService.prototype.addComment = function (url, comment, userUsername) {
         var body = {
-            comment: comment
+            comment: comment,
+            userUsername: userUsername
         };
         return this._http.post(url, body);
     };

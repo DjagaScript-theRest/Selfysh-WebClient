@@ -63,7 +63,7 @@ export class PostDetailsComponent implements OnInit, OnDestroy {
         window.scrollTo(0, document.body.scrollHeight);
     }
     addComment() {
-        this._postService.addComment(this.postUrl, this.commentContent)
+        this._postService.addComment(this.postUrl, this.commentContent, this.userUsername)
             .map(r => r.json())
             .subscribe((result) => {
                 console.log(result);

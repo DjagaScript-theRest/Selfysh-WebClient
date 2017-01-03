@@ -43,10 +43,11 @@ export class PostService {
             });
     }
 
-    addComment(url: string, comment: string) {
+    addComment(url: string, comment: string, userUsername: string) {
 
         let body = {
-            comment
+            comment,
+            userUsername
         };
 
         return this._http.post(url, body);

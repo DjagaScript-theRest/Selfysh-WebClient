@@ -53,7 +53,7 @@ var PostDetailsComponent = (function () {
         window.scrollTo(0, document.body.scrollHeight);
     };
     PostDetailsComponent.prototype.addComment = function () {
-        this._postService.addComment(this.postUrl, this.commentContent)
+        this._postService.addComment(this.postUrl, this.commentContent, this.userUsername)
             .map(function (r) { return r.json(); })
             .subscribe(function (result) {
             console.log(result);
