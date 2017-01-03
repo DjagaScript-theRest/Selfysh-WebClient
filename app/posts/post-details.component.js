@@ -18,6 +18,7 @@ var PostDetailsComponent = (function () {
         this._route = _route;
         this._postService = _postService;
         this._userService = _userService;
+        this.userUsername = null;
         this.apiEndPoint = constants_1.Constants.imagesUrl;
     }
     PostDetailsComponent.prototype.ngOnInit = function () {
@@ -39,8 +40,8 @@ var PostDetailsComponent = (function () {
             _this._userService.getLoggedUser()
                 .subscribe(function (res) {
                 if (res.user) {
-                    var username = res.user.username;
-                    if (_this.post.usersLiked.indexOf(username) >= 0) {
+                    _this.userUsername = res.user.username;
+                    if (_this.post.usersLiked.indexOf(_this.userUsername) >= 0) {
                         _this.isVoted = true;
                     }
                     _this.hasVoting = true;

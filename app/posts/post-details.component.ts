@@ -13,6 +13,7 @@ import { Constants } from './../constants/constants';
     templateUrl: 'app/posts/post-details.component.html'
 })
 export class PostDetailsComponent implements OnInit, OnDestroy {
+    userUsername: any = null;
     post: IPost;
     commentContent: string;
     postUrl: string;
@@ -48,8 +49,8 @@ export class PostDetailsComponent implements OnInit, OnDestroy {
                 this._userService.getLoggedUser()
                     .subscribe((res) => {
                         if (res.user) {
-                            let username = res.user.username;
-                            if (this.post.usersLiked.indexOf(username) >= 0) {
+                            this.userUsername = res.user.username;
+                            if (this.post.usersLiked.indexOf(this.userUsername) >= 0) {
                                 this.isVoted = true;
                             }
                             this.hasVoting = true;

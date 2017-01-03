@@ -19,7 +19,7 @@
                             <i class="ti-thumb-up">{{post.likes}}</i>
                         </a>
                     </li>
-                    <li>
+                    <li *ngIf='userUsername'>
                         <div class="btn btn-filled" (click)='scrollDown()' style="display: inline-block">Leave a comment</div>
                     </li>
                     <vote (onVoted)="onVoted($event)" [voted]="isVoted" [hasVoting]="hasVoting"></vote>                     
@@ -39,7 +39,9 @@
                 <hr>
             </ul>
         </div>
+        <div *ngIf='userUsername'>
             <textarea name="commentContent" id="comment-content" rows="3" placeholder="Type here" [(ngModel)]='commentContent'></textarea>
             <div class="btn btn-filled" (click)='addComment()'>Post comment</div>
+        </div>
     </div>
 </div>
