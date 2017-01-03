@@ -25,7 +25,7 @@ var PostDetailsComponent = (function () {
         this.sub = this._route.params.subscribe(function (params) {
             var id = params['id'];
             _this.postId = id;
-            _this.postUrl = constants_1.Constants.hostUrl + "/api/posts/" + id;
+            _this.postUrl = constants_1.Constants.hostUrl + "api/posts/" + id;
             _this.getPost(id);
         });
     };

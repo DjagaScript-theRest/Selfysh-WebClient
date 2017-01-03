@@ -32,7 +32,7 @@ export class PostDetailsComponent implements OnInit, OnDestroy {
             params => {
                 let id = params['id'];
                 this.postId = id;
-                this.postUrl = `${Constants.hostUrl}/api/posts/` + id;
+                this.postUrl = `${Constants.hostUrl}api/posts/` + id;
                 this.getPost(id);
             });
     }

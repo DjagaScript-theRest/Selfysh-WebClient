@@ -9,7 +9,7 @@ import { Constants } from './../../constants/constants';
     templateUrl: './post-upload.component.html'
 })
 export class PostUploadComponent implements OnInit {
-    public uploader: FileUploader = new FileUploader({ url: `${Constants.hostUrl}/api/posts/upload` });
+    public uploader: FileUploader = new FileUploader({ url: `${Constants.hostUrl}api/posts/upload` });
     @Output() onUploaded = new EventEmitter<any>();
 
     public ngOnInit() {

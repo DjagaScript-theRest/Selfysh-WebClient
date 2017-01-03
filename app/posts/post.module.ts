@@ -38,7 +38,7 @@ import { PostService } from './post.service';
         PostUploadComponent,
         InitCapsPipe,
         SearchPipe,
-        FileSelectDirective
+        FileSelectDirective,
         SearchPipe,
         PostVoteComponent
     ],

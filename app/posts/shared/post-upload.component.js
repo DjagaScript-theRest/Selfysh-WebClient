@@ -13,7 +13,7 @@ var ng2_file_upload_1 = require("ng2-file-upload");
 var constants_1 = require("./../../constants/constants");
 var PostUploadComponent = (function () {
     function PostUploadComponent() {
-        this.uploader = new ng2_file_upload_1.FileUploader({ url: constants_1.Constants.hostUrl + "/api/posts/upload" });
+        this.uploader = new ng2_file_upload_1.FileUploader({ url: constants_1.Constants.hostUrl + "api/posts/upload" });
         this.onUploaded = new core_1.EventEmitter();
     }
     PostUploadComponent.prototype.ngOnInit = function () {

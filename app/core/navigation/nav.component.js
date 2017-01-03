@@ -27,7 +27,7 @@ var NavComponent = (function () {
         var _this = this;
         this.menuItems = [{
                 name: 'Home',
-                link: ['/home'],
+                link: ['/posts'],
                 children: null
             }, {
                 name: 'Category',

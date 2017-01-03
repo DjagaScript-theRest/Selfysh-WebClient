@@ -17,6 +17,7 @@ class Post implements IPost {
         public imagePath: String,
         public likes: Number,
         public comments: String[] = null,
+        public usersLiked: String[] = null
     ) { }
 }
 
@@ -60,7 +61,7 @@ export class PostCreateComponent {
                 }
 
                 let author = res.user.username;
-                let post = new Post(null, this.title, this.selectedCategory, author, new Date(), this.imageName, this.imagePath, 0, 0);
+                let post = new Post(null, this.title, this.selectedCategory, author, new Date(), this.imageName, this.imagePath, 0);
                 this.postService.createPost(post)
                     .subscribe((dbPost) => { this.userService.addPost(author, dbPost).subscribe((resp) => console.log(resp), (err) => console.log(err)) });
             });

@@ -48,7 +48,7 @@ PostModule = __decorate([
             post_upload_component_1.PostUploadComponent,
             init_caps_pipe_1.InitCapsPipe,
             search_pipe_1.SearchPipe,
-            ng2_file_upload_1.FileSelectDirective
+            ng2_file_upload_1.FileSelectDirective,
             search_pipe_1.SearchPipe,
             post_vote_component_1.PostVoteComponent
         ],
