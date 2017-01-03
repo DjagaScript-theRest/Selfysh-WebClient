@@ -73,7 +73,7 @@ export class UserService {
         console.log(options)
         return this.http.put(`${UserByIdUrl}${id}`, JSON.stringify(settings), options)
             .map((res: Response) => {
-                return {status: res.status, body: res.json()}
+                return { status: res.status, body: res.json() }
             })
     }
 }

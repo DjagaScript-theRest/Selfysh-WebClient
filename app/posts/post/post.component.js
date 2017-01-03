@@ -55,7 +55,7 @@ var PostCreateComponent = (function () {
             var author = res.user.username;
             var post = new Post(null, _this.title, _this.selectedCategory, author, new Date(), _this.imageName, _this.imagePath, 0, 0);
             _this.postService.createPost(post)
-                .subscribe(function (dbPost) { return _this.userService.addPost(author, dbPost); });
+                .subscribe(function (dbPost) { _this.userService.addPost(author, dbPost).subscribe(function (resp) { return console.log(resp); }, function (err) { return console.log(err); }); });
         });
     };
     PostCreateComponent.prototype.onUploaded = function (file) {
