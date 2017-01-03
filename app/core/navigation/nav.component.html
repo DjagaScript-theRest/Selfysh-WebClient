@@ -40,6 +40,9 @@
                 <div class="module left no-padding" *ngIf="user">                    
                         <ul class="menu">
                             <li>
+                                <a href="/posts/create">Create post</a>
+                            </li>
+                            <li>
                                 <a href="/profile">
                                     <img [src]="imagesUrl + user?.avatar" width="44px" height="33" alt="">
                                     <span>{{user?.username}}</span>
