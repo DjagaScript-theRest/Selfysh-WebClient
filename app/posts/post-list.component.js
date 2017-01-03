@@ -10,9 +10,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var post_service_1 = require("./post.service");
+var constants_1 = require("./../constants/constants");
 var PostListComponent = (function () {
     function PostListComponent(_postService) {
         this._postService = _postService;
+        this.apiEndPoint = constants_1.Constants.imagesUrl;
     }
     PostListComponent.prototype.ngOnInit = function () {
         var _this = this;

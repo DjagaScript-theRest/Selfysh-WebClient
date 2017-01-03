@@ -1,10 +1,11 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { Subscription }       from 'rxjs/Subscription';
+import { Subscription } from 'rxjs/Subscription';
 
 import { IPost } from './post';
 import { PostService } from './post.service';
+import { Constants } from './../constants/constants';
 
 
 @Component({
@@ -14,19 +15,20 @@ export class PostDetailsComponent implements OnInit, OnDestroy {
     post: IPost;
     commentContent: string;
     postUrl: string;
+    apiEndPoint: string = Constants.imagesUrl;
     private sub: Subscription;
 
     constructor(private _route: ActivatedRoute,
-                private _postService: PostService) {
+        private _postService: PostService) {
     }
 
     ngOnInit(): void {
         this.sub = this._route.params.subscribe(
             params => {
                 let id = params['id'];
-                this.postUrl = 'http://localhost:1337/api/posts/'+ id;
+                this.postUrl = 'http://localhost:1337/api/posts/' + id;
                 this.getPost(id);
-        });
+            });
     }
 
     ngOnDestroy() {
@@ -39,13 +41,13 @@ export class PostDetailsComponent implements OnInit, OnDestroy {
     }
 
     scrollDown() {
-        window.scrollTo(0,document.body.scrollHeight);
+        window.scrollTo(0, document.body.scrollHeight);
     }
-      addComment() {
+    addComment() {
         this._postService.addComment(this.postUrl, this.commentContent)
-        .map(r => r.json())
-        .subscribe((result) => {
-            console.log(result);
-      });
+            .map(r => r.json())
+            .subscribe((result) => {
+                console.log(result);
+            });
     }
 }

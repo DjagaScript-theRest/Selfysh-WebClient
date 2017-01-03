@@ -6,12 +6,12 @@
                     <h2>{{post.title}}</h2>
                 </div>
                 <div class="post-image" style="width: 100%">
-                    <img [src]='post.imageUrl' alt="Image" style="width: 100%">
+                    <img src="{{apiEndPoint}}{{post.image.fileName}}" alt="Image" style="width: 100%">
                 </div>
                 <ul class="post-meta">
                     <li>
                         <a href="">
-                            <i class="ti-user">{{post.author}}</i>
+                            <i class="ti-user">{{post.author.username}}</i>
                         </a>
                     </li>
                     <li>
@@ -22,16 +22,6 @@
                     <li>
                         <a href="">
                             <i class="ti-thumb-down">{{post.dislikes}}</i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <i class="ti-facebook">Share</i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <i class="ti-twitter">Share</i>
                         </a>
                     </li>
                     <li>
