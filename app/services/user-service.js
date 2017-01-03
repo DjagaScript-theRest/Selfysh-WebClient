@@ -12,9 +12,10 @@ var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
 var Observable_1 = require("rxjs/Observable");
 var http_headers_service_1 = require("./http-headers.service");
-var UsersUrl = 'http://localhost:1337/api/users';
-var UserByIdUrl = 'http://localhost:1337/api/users/user';
-var GetLoggedUserUrl = 'http://localhost:1337/api/auth/getLoggedUser';
+var constants_1 = require("./../constants/constants");
+var UsersUrl = constants_1.Constants.hostUrl + 'api/users';
+var UserByIdUrl = constants_1.Constants.hostUrl + 'api/users/user/';
+var GetLoggedUserUrl = constants_1.Constants.hostUrl + 'api/auth/getLoggedUser';
 var AuthToken = 'auth_token';
 var UserService = (function () {
     function UserService(http, httpHeadersService) {
