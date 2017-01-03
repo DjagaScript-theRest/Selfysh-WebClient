@@ -3,10 +3,10 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
-import { FileSelectDirective, FileDropDirective } from 'ng2-file-upload';
+import { FileSelectDirective, FileDropDirective, FileUploadModule } from 'ng2-file-upload';
 
 import { PostListComponent } from './post-list.component';
-import {PostDetailsComponent} from './post-details.component';
+import { PostDetailsComponent } from './post-details.component';
 import { PostCategoryComponent } from './post-category.component';
 import { PostUploadComponent } from './shared/post-upload.component';
 import { PostCreateComponent } from './post/post.component';
@@ -18,6 +18,7 @@ import { PostService } from './post.service';
 
 @NgModule({
     imports: [
+
         CommonModule,
         FormsModule,
         RouterModule.forChild([
@@ -33,9 +34,9 @@ import { PostService } from './post.service';
         PostCategoryComponent,
         PostCreateComponent,
         PostUploadComponent,
-        FileSelectDirective,
         InitCapsPipe,
-        SearchPipe
+        SearchPipe,
+        FileSelectDirective
     ],
     providers: [
         PostService,

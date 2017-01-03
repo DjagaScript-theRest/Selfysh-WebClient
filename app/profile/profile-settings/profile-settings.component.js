@@ -15,6 +15,7 @@ var forms_1 = require("@angular/forms");
 var http_headers_service_1 = require("../../services/http-headers.service");
 var router_1 = require("@angular/router");
 var authentication_service_1 = require("../../services/authentication.service");
+var ng2_file_upload_1 = require("ng2-file-upload");
 var ProfileSettingsComponent = (function () {
     function ProfileSettingsComponent(userService, fb, httpHeadersService, router, authService) {
         this.userService = userService;
@@ -22,13 +23,18 @@ var ProfileSettingsComponent = (function () {
         this.httpHeadersService = httpHeadersService;
         this.router = router;
         this.authService = authService;
+        this.formUploaderConfig = { url: '' };
         this.imagesUrl = constants_1.Constants.imagesUrl;
     }
     ProfileSettingsComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.userService
             .getLoggedUser()
-            .subscribe(function (x) { return _this.user = x.user; });
+            .subscribe(function (x) {
+            _this.user = x.user;
+            _this.uploader = new ng2_file_upload_1.FileUploader({ url: constants_1.Constants.hostUrl + 'api/users/user/' + _this.user.id + '/avatar' });
+            console.log(constants_1.Constants.hostUrl + 'api/users/user/' + _this.user.id + '/avatar');
+        });
         this.userSettingsToUpdate = this.fb.group({
             'newPassword': ['', forms_1.Validators.minLength(4)],
             'confirmedPassword': ['', forms_1.Validators.minLength(4)],
@@ -38,6 +44,7 @@ var ProfileSettingsComponent = (function () {
     };
     ProfileSettingsComponent.prototype.updateSettings = function () {
         var _this = this;
+        this.uploader.uploadAll();
         this.userService.updateSettings(this.user.id, this.userSettingsToUpdate.value)
             .subscribe(function (x) {
             // this.router.navigate(['/profile'])
@@ -45,6 +52,12 @@ var ProfileSettingsComponent = (function () {
             _this.router.navigate(['/login']);
             location.reload();
         });
+    };
+    ProfileSettingsComponent.prototype.uploadImage = function () {
+        this.uploader.uploadAll();
+    };
+    ProfileSettingsComponent.prototype.removeImage = function () {
+        this.uploader.clearQueue();
     };
     return ProfileSettingsComponent;
 }());
