@@ -23,13 +23,11 @@ var PostService = (function () {
     }
     PostService.prototype.getPosts = function () {
         return this._http.get(this._postUrl)
-            .map(function (response) { return response.json(); })
-            .do(function (data) { return console.log('All: ' + JSON.stringify(data)); });
+            .map(function (response) { return response.json(); });
     };
     PostService.prototype.getPostsByCategory = function (category) {
         return this._http.get(this._postUrl + '/' + category)
-            .map(function (response) { return response.json(); })
-            .do(function (data) { return console.log('All: ' + JSON.stringify(data)); });
+            .map(function (response) { return response.json(); });
     };
     PostService.prototype.getPostById = function (id) {
         return this.getPosts()
@@ -42,6 +40,12 @@ var PostService = (function () {
             .map(function (response) {
             return response.json();
         });
+    };
+    PostService.prototype.addComment = function (url, comment) {
+        var body = {
+            comment: comment
+        };
+        return this._http.post(url, body);
     };
     return PostService;
 }());

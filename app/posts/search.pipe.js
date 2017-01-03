@@ -13,8 +13,6 @@ var SearchPipe = (function () {
     function SearchPipe() {
     }
     SearchPipe.prototype.transform = function (value, filterBy) {
-        console.log(value);
-        console.log(filterBy);
         filterBy = filterBy ? filterBy.toLocaleLowerCase() : null;
         return filterBy ? value.filter(function (post) {
             return post.title.toLocaleLowerCase().indexOf(filterBy) !== -1;
