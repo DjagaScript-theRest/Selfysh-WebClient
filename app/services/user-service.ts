@@ -6,10 +6,11 @@ import { Subject } from 'rxjs/Subject';
 import { HttpHeadersService } from './http-headers.service';
 import { Constants } from './../constants/constants';
 import { IPost } from './../posts/post';
+import { AuthenticationService } from './authentication.service'
 
-const UsersUrl: String = 'http://localhost:1337/api/users';
-const UserByIdUrl: string = 'http://localhost:1337/api/users/user';
-const GetLoggedUserUrl: string = 'http://localhost:1337/api/auth/getLoggedUser';
+const UsersUrl: String = Constants.hostUrl + 'api/users';
+const UserByIdUrl: string = Constants.hostUrl + 'api/users/user/';
+const GetLoggedUserUrl: string = Constants.hostUrl + 'api/auth/getLoggedUser';
 const AuthToken: string = 'auth_token';
 
 
