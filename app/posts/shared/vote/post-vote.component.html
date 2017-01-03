@@ -1,0 +1,8 @@
+<ul *ngIf="hasVoting">
+    <li (click)="vote(true)" *ngIf="!voted">
+        <a>
+            <i class="ti-thumb-up">Like</i>
+        </a>
+    </li>
+    <li *ngIf="voted"><i class="ti-star">Liked</i></li>
+</ul>
