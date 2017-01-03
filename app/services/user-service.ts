@@ -4,7 +4,9 @@ import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 
 import { HttpHeadersService } from './http-headers.service';
+import { IPost } from './../posts/post';
 
+const UsersUrl: String = 'http://localhost:1337/api/users';
 const UserByIdUrl: string = 'http://localhost:1337/api/users/user';
 const GetLoggedUserUrl: string = 'http://localhost:1337/api/auth/getLoggedUser';
 const AuthToken: string = 'auth_token';
@@ -23,6 +25,17 @@ export class UserService {
         return this.http.get(url).map((response: Response) => response.json());
     }
 
+    public addPost(username: String, post: IPost): Observable<any> {
+        let token = localStorage.getItem(AuthToken);
+        let options = this.httpHeadersService.getHeaders(token);
+
+        let url = `${UsersUrl}/${username}/image-posts`;
+        return this.http.post(url, post, options)
+            .map((res: Response) => {
+                let body = res.json();
+            });
+    }
+
     public getLoggedUser(): Observable<any> {
         let token = localStorage.getItem(AuthToken);
         let options = this.httpHeadersService.getHeaders(token);
@@ -38,7 +51,7 @@ export class UserService {
     }
 
 
-    public isLoggedIn():Observable<boolean> {
+    public isLoggedIn(): Observable<boolean> {
         let userDataString: string = localStorage.getItem(AuthToken);
         if (!userDataString) {
             return Observable.of(false);
@@ -51,6 +64,6 @@ export class UserService {
                 }
                 return false;
             })
-    }    
+    }
 }
 

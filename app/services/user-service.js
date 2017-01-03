@@ -12,6 +12,7 @@ var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
 var Observable_1 = require("rxjs/Observable");
 var http_headers_service_1 = require("./http-headers.service");
+var UsersUrl = 'http://localhost:1337/api/users';
 var UserByIdUrl = 'http://localhost:1337/api/users/user';
 var GetLoggedUserUrl = 'http://localhost:1337/api/auth/getLoggedUser';
 var AuthToken = 'auth_token';
@@ -23,6 +24,15 @@ var UserService = (function () {
     UserService.prototype.getUserData = function (userId) {
         var url = "" + UserByIdUrl + userId;
         return this.http.get(url).map(function (response) { return response.json(); });
+    };
+    UserService.prototype.addPost = function (username, post) {
+        var token = localStorage.getItem(AuthToken);
+        var options = this.httpHeadersService.getHeaders(token);
+        var url = UsersUrl + "/" + username + "/image-posts";
+        return this.http.post(url, post, options)
+            .map(function (res) {
+            var body = res.json();
+        });
     };
     UserService.prototype.getLoggedUser = function () {
         var token = localStorage.getItem(AuthToken);
