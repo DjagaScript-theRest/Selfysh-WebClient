@@ -5,12 +5,14 @@ import { Subscription } from 'rxjs/Subscription';
 
 import { IPost } from './post';
 import { PostService } from './post.service';
+import { Constants } from './../constants/constants';
 
 @Component({
     templateUrl: 'app/posts/post-list.component.html',
 })
 
 export class PostCategoryComponent implements OnInit {
+    public apiEndPoint: String = Constants.imagesUrl;
     posts: IPost[];
     private sub: Subscription;
 

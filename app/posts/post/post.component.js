@@ -13,7 +13,7 @@ var user_service_1 = require("./../../services/user-service");
 var post_service_1 = require("./../post.service");
 var DEFAULT_CATEGORY = 'other';
 var Post = (function () {
-    function Post(_id, title, category, author, createdOn, imageName, imagePath, likes, dislikes, comments) {
+    function Post(_id, title, category, author, createdOn, imageName, imagePath, likes, comments) {
         if (comments === void 0) { comments = null; }
         this._id = _id;
         this.title = title;
@@ -23,7 +23,6 @@ var Post = (function () {
         this.imageName = imageName;
         this.imagePath = imagePath;
         this.likes = likes;
-        this.dislikes = dislikes;
         this.comments = comments;
     }
     return Post;

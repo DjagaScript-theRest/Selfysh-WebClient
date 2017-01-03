@@ -11,11 +11,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var post_service_1 = require("./post.service");
+var constants_1 = require("./../constants/constants");
 var PostCategoryComponent = (function () {
     function PostCategoryComponent(_route, _router, _postService) {
         this._route = _route;
         this._router = _router;
         this._postService = _postService;
+        this.apiEndPoint = constants_1.Constants.imagesUrl;
     }
     PostCategoryComponent.prototype.ngOnInit = function () {
         var _this = this;

@@ -10,24 +10,19 @@
                 </div>
                 <ul class="post-meta">
                     <li>
-                        <a href="">
+                        <a>
                             <i class="ti-user">{{post.author.username}}</i>
                         </a>
                     </li>
                     <li>
-                        <a href="">
+                        <a>
                             <i class="ti-thumb-up">{{post.likes}}</i>
                         </a>
                     </li>
                     <li>
-                        <a href="">
-                            <i class="ti-thumb-down">{{post.dislikes}}</i>
-                        </a>
+                        <div class="btn btn-filled" (click)='scrollDown()' style="display: inline-block">Leave a comment</div>
                     </li>
-                    <li>
-                        <div class="btn btn-filled" (click)='scrollDown()'>Leave a comment</div>
-                    </li>
-
+                    <vote (onVoted)="onVoted($event)" [voted]="isVoted" [hasVoting]="hasVoting"></vote>                     
                 </ul>
                 <p>
                     <span>{{post.comments.length}}</span> comments:

@@ -21,6 +21,7 @@ var post_component_1 = require("./post/post.component");
 var init_caps_pipe_1 = require("./shared/init-caps.pipe");
 var search_pipe_1 = require("./search.pipe");
 var is_loggedIn_guard_1 = require("./../guards/is-loggedIn.guard");
+var post_vote_component_1 = require("./shared/vote/post-vote.component");
 var post_service_1 = require("./post.service");
 var PostModule = (function () {
     function PostModule() {
@@ -47,7 +48,8 @@ PostModule = __decorate([
             post_upload_component_1.PostUploadComponent,
             ng2_file_upload_1.FileSelectDirective,
             init_caps_pipe_1.InitCapsPipe,
-            search_pipe_1.SearchPipe
+            search_pipe_1.SearchPipe,
+            post_vote_component_1.PostVoteComponent
         ],
         providers: [
             post_service_1.PostService,

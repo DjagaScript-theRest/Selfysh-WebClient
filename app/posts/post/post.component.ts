@@ -16,8 +16,7 @@ class Post implements IPost {
         public imageName: String,
         public imagePath: String,
         public likes: Number,
-        public dislikes: Number,
-        public comments: String[] = null
+        public comments: String[] = null,
     ) { }
 }
 

@@ -14,12 +14,13 @@ require("rxjs/add/operator/do");
 // import 'rxjs/add/operator/catch';
 require("rxjs/add/operator/map");
 var http_headers_service_1 = require("./../services/http-headers.service");
+var constants_1 = require("./../constants/constants");
 var AuthToken = 'auth_token';
 var PostService = (function () {
     function PostService(_http, httpHeadersService) {
         this._http = _http;
         this.httpHeadersService = httpHeadersService;
-        this._postUrl = 'http://localhost:1337/api/posts';
+        this._postUrl = constants_1.Constants.hostUrl + "api/posts";
     }
     PostService.prototype.getPosts = function () {
         return this._http.get(this._postUrl)
@@ -46,6 +47,16 @@ var PostService = (function () {
             comment: comment
         };
         return this._http.post(url, body);
+    };
+    PostService.prototype.likePost = function (postId, username) {
+        var body = {
+            username: username
+        };
+        var url = this._postUrl + "/" + postId + "/vote";
+        return this._http.post(url, body)
+            .map(function (response) {
+            return response.json();
+        });
     };
     return PostService;
 }());

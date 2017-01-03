@@ -1,6 +1,7 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
 import { FileUploader } from 'ng2-file-upload';
+import { Constants } from './../../constants/constants';
 
 @Component({
     moduleId: module.id,
@@ -8,7 +9,7 @@ import { FileUploader } from 'ng2-file-upload';
     templateUrl: './post-upload.component.html'
 })
 export class PostUploadComponent implements OnInit {
-    public uploader: FileUploader = new FileUploader({ url: 'http://localhost:1337/api/posts/upload' });
+    public uploader: FileUploader = new FileUploader({ url: `${Constants.hostUrl}/api/posts/upload` });
     @Output() onUploaded = new EventEmitter<any>();
 
     public ngOnInit() {

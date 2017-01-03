@@ -7,6 +7,6 @@ export interface IPost {
     imageName: String,
     imagePath: String,
     likes: Number,
-    dislikes: Number,
-    comments: String[]
+    comments: String[],
+    usersLiked: String[]
 }

@@ -8,12 +8,13 @@ import 'rxjs/add/operator/map';
 
 import { IPost } from './post';
 import { HttpHeadersService } from './../services/http-headers.service';
+import { Constants } from './../constants/constants';
 
 const AuthToken: string = 'auth_token';
 
 @Injectable()
 export class PostService {
-    private _postUrl = 'http://localhost:1337/api/posts';
+    private _postUrl = `${Constants.hostUrl}api/posts`;
 
     constructor(private _http: Http, private httpHeadersService: HttpHeadersService) { }
 
@@ -42,12 +43,23 @@ export class PostService {
             });
     }
 
-      addComment(url: string, comment: string) {
+    addComment(url: string, comment: string) {
 
         let body = {
             comment
         };
 
         return this._http.post(url, body);
+    }
+
+    likePost(postId: string, username: string): Observable<any> {
+        let body = {
+            username
+        };
+        let url = `${this._postUrl}/${postId}/vote`;
+        return this._http.post(url, body)
+            .map((response: Response) => {
+                return <any>response.json()
+            });
     }
 }
