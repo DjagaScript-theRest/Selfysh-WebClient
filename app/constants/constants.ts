@@ -1,4 +1,4 @@
 export class Constants {
-    public static readonly imagesUrl: string = 'http://localhost:1337/static/images/';
-    public static readonly hostUrl: string = 'http://localhost:1337/';
+    public static readonly imagesUrl: string = 'https://selfysh.herokuapp.com/static/images/';
+    public static readonly hostUrl: string = 'https://selfysh.herokuapp.com/';
 }

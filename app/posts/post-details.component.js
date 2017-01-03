@@ -58,7 +58,6 @@ var PostDetailsComponent = (function () {
             .subscribe(function (result) {
             console.log(result);
         });
-        location.reload();
     };
     PostDetailsComponent.prototype.onVoted = function (value) {
         var _this = this;

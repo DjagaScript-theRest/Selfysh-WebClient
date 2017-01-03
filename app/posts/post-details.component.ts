@@ -68,7 +68,6 @@ export class PostDetailsComponent implements OnInit, OnDestroy {
             .subscribe((result) => {
                 console.log(result);
             });
-            location.reload();
     }
 
     public onVoted(value: any) {

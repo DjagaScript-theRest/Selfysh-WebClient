@@ -4,7 +4,7 @@ var Constants = (function () {
     }
     return Constants;
 }());
-Constants.imagesUrl = 'http://localhost:1337/static/images/';
-Constants.hostUrl = 'http://localhost:1337/';
+Constants.imagesUrl = 'https://selfysh.herokuapp.com/static/images/';
+Constants.hostUrl = 'https://selfysh.herokuapp.com/';
 exports.Constants = Constants;
 //# sourceMappingURL=constants.js.map

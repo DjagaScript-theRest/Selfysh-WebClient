@@ -8,9 +8,7 @@
     "tsc": "tsc",
     "tsc:w": "tsc -w",
     "lint": "tslint ./app/**/*.ts -t verbose",
-    "lite": "lite-server",
-    "typings": "typings",
-    "postinstall": "typings install"
+    "lite": "lite-server"
   },
   "repository": {
     "type": "git",
@@ -46,12 +44,5 @@
     "rxjs": "5.0.0-beta.12",
     "systemjs": "0.19.27",
     "zone.js": "^0.6.23"
-  },
-  "devDependencies": {
-    "concurrently": "^2.2.0",
-    "lite-server": "^2.2.0",
-    "tslint": "^3.7.4",
-    "typescript": "^2.0.2",
-    "typings": "^1.0.4"
   }
 }
