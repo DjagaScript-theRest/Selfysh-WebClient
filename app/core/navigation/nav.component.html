@@ -3,7 +3,7 @@
         <div class="nav-bar">
             <div class="module left">
                 <a href="#">
-                    <img class="logo" alt="Logo" src="../app/assets/img/logo.jpg" />
+                    <img class="logo" alt="Logo" src="../app/assets/img/logo.png" />
                 </a>
             </div>
             <div class="module widget-handle mobile-toggle right visible-sm visible-xs">
@@ -39,6 +39,9 @@
                 </div>-->
                 <div class="module left no-padding" *ngIf="user">                    
                         <ul class="menu">
+                            <li>
+                                <a href="/posts/create">Create post</a>
+                            </li>
                             <li>
                                 <a href="/profile">
                                     <img [src]="imagesUrl + user?.avatar" width="44px" height="33" alt="">

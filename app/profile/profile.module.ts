@@ -8,10 +8,16 @@ import { UserService } from '../services/user-service'
 import { ProfileComponent } from './profile.component'
 import { ProfileSettingsComponent } from './profile-settings/profile-settings.component'
 
+import { FileSelectDirective, FileDropDirective, FileUploadModule } from 'ng2-file-upload';
+import { OthersProfileComponent } from './others-profile/others-profile.component'
+
+
 @NgModule({
     declarations: [
         ProfileComponent,
-        ProfileSettingsComponent
+        ProfileSettingsComponent,
+        OthersProfileComponent
+
     ],
     imports: [
         RouterModule,

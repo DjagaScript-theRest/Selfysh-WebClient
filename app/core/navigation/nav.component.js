@@ -65,27 +65,8 @@ var NavComponent = (function () {
                         link: ['/posts/other'],
                         children: null
                     }]
-            }, {
-                name: 'Top',
-                link: [''],
-                children: [{
-                        name: 'Weekly top',
-                        link: ['/weekly-top'],
-                        children: null
-                    }, {
-                        name: 'Monthly top',
-                        link: ['/monthly-top'],
-                        children: null
-                    }]
-            }, {
-                name: 'Daily Challenge',
-                link: ['/daily-challenge'],
-                children: null
-            }, {
-                name: 'Weekly Challenge',
-                link: ['/weekly-challenge'],
-                children: null
-            }];
+            }
+        ];
         this.userService
             .getLoggedUser()
             .toPromise()
