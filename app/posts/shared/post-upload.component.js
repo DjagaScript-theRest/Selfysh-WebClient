@@ -13,7 +13,15 @@ var ng2_file_upload_1 = require("ng2-file-upload");
 var PostUploadComponent = (function () {
     function PostUploadComponent() {
         this.uploader = new ng2_file_upload_1.FileUploader({ url: 'http://localhost:1337/api/posts/upload' });
+        this.onUploaded = new core_1.EventEmitter();
     }
+    PostUploadComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.uploader.onCompleteItem = function (item, response, status, headers) {
+            var file = JSON.parse(response).file;
+            _this.onUploaded.emit(file);
+        };
+    };
     PostUploadComponent.prototype.uploadImage = function () {
         this.uploader.uploadAll();
     };
@@ -22,6 +30,10 @@ var PostUploadComponent = (function () {
     };
     return PostUploadComponent;
 }());
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", Object)
+], PostUploadComponent.prototype, "onUploaded", void 0);
 PostUploadComponent = __decorate([
     core_1.Component({
         moduleId: module.id,
