@@ -29,6 +29,11 @@ export class PostService {
             .do(data => console.log('All: ' + JSON.stringify(data)))
     }
 
+    getPostById(id: string): Observable<IPost> {
+        return this.getPosts()
+            .map((posts: IPost[]) => posts.find(p => p._id === id));
+    }
+
     createPost(post: IPost): Observable<IPost> {
         let token = localStorage.getItem(AuthToken);
         let options = this.httpHeadersService.getHeaders(token);

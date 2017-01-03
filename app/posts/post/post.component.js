@@ -13,8 +13,9 @@ var user_service_1 = require("./../../services/user-service");
 var post_service_1 = require("./../post.service");
 var DEFAULT_CATEGORY = 'other';
 var Post = (function () {
-    function Post(title, category, author, createdOn, imageName, imagePath, likes, dislikes, comments) {
+    function Post(_id, title, category, author, createdOn, imageName, imagePath, likes, dislikes, comments) {
         if (comments === void 0) { comments = null; }
+        this._id = _id;
         this.title = title;
         this.category = category;
         this.author = author;
@@ -52,7 +53,7 @@ var PostCreateComponent = (function () {
                 return;
             }
             var author = res.user.username;
-            var post = new Post(_this.title, _this.selectedCategory, author, new Date(), _this.imageName, _this.imagePath, 0, 0);
+            var post = new Post(null, _this.title, _this.selectedCategory, author, new Date(), _this.imageName, _this.imagePath, 0, 0);
             _this.postService.createPost(post)
                 .subscribe(function (dbPost) { return _this.userService.addPost(author, dbPost); });
         });

@@ -12,10 +12,11 @@ var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
 var http_headers_service_1 = require("./http-headers.service");
 require("rxjs/add/operator/map");
-var RegisterUrl = 'http://localhost:1337/api/auth/register';
-var LoginUrl = 'http://localhost:1337/api/auth/login';
-var LogoutUrl = 'http://localhost:1337/api/auth/logout';
-var GetLoggedUser = 'http://localhost:1337/api/auth/getLoggedUser';
+var constants_1 = require("../constants/constants");
+var RegisterUrl = constants_1.Constants.hostUrl + 'api/auth/register';
+var LoginUrl = constants_1.Constants.hostUrl + 'api/auth/login';
+var LogoutUrl = constants_1.Constants.hostUrl + 'api/auth/logout';
+var GetLoggedUser = constants_1.Constants.hostUrl + 'api/auth/getLoggedUser';
 var AuthToken = 'auth_token';
 var AuthenticationService = (function () {
     function AuthenticationService(http, httpHedersService) {

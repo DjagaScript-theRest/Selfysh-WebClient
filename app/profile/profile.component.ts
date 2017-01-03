@@ -12,7 +12,6 @@ import { Constants } from './../constants/constants'
 })
 export class ProfileComponent implements OnInit {
     public user: any;
-    // public cover= "https://pbs.twimg.com/profile_banners/50988711/1384539792/600x200";
     public imagesUrl = Constants.imagesUrl;
 
     constructor(private userService: UserService) {

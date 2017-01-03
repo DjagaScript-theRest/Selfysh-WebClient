@@ -15,6 +15,7 @@ var platform_browser_1 = require("@angular/platform-browser");
 var forms_1 = require("@angular/forms");
 var user_service_1 = require("../services/user-service");
 var profile_component_1 = require("./profile.component");
+var profile_settings_component_1 = require("./profile-settings/profile-settings.component");
 var ProfileModule = (function () {
     function ProfileModule() {
     }
@@ -22,7 +23,10 @@ var ProfileModule = (function () {
 }());
 ProfileModule = __decorate([
     core_1.NgModule({
-        declarations: [profile_component_1.ProfileComponent],
+        declarations: [
+            profile_component_1.ProfileComponent,
+            profile_settings_component_1.ProfileSettingsComponent
+        ],
         imports: [
             router_1.RouterModule,
             http_1.HttpModule,

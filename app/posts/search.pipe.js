@@ -9,25 +9,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var http_1 = require("@angular/http");
-var HttpHeadersService = (function () {
-    function HttpHeadersService() {
+var SearchPipe = (function () {
+    function SearchPipe() {
     }
-    HttpHeadersService.prototype.getHeaders = function (token) {
-        var headersObject = {};
-        headersObject['Content-Type'] = 'application/json';
-        if (token) {
-            headersObject['Authorization'] = token;
-        }
-        var headers = new http_1.Headers(headersObject);
-        var options = new http_1.RequestOptions({ headers: headers });
-        return options;
+    SearchPipe.prototype.transform = function (value, filterBy) {
+        console.log(value);
+        console.log(filterBy);
+        filterBy = filterBy ? filterBy.toLocaleLowerCase() : null;
+        return filterBy ? value.filter(function (post) {
+            return post.title.toLocaleLowerCase().indexOf(filterBy) !== -1;
+        }) : value;
     };
-    return HttpHeadersService;
+    return SearchPipe;
 }());
-HttpHeadersService = __decorate([
-    core_1.Injectable(),
+SearchPipe = __decorate([
+    core_1.Pipe({
+        name: 'searchPipe'
+    }),
     __metadata("design:paramtypes", [])
-], HttpHeadersService);
-exports.HttpHeadersService = HttpHeadersService;
-//# sourceMappingURL=http-headers.service.js.map
+], SearchPipe);
+exports.SearchPipe = SearchPipe;
+//# sourceMappingURL=search.pipe.js.map

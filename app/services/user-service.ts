@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 
 import { HttpHeadersService } from './http-headers.service';
+import { Constants } from './../constants/constants';
 import { IPost } from './../posts/post';
 
 const UsersUrl: String = 'http://localhost:1337/api/users';
@@ -63,6 +64,16 @@ export class UserService {
                     return true;
                 }
                 return false;
+            })
+    }
+
+    public updateSettings(id: any, settings: any) {
+        let token = localStorage.getItem(AuthToken);
+        let options = this.httpHeadersService.getHeaders(token);
+        console.log(options)
+        return this.http.put(`${UserByIdUrl}${id}`, JSON.stringify(settings), options)
+            .map((res: Response) => {
+                return {status: res.status, body: res.json()}
             })
     }
 }

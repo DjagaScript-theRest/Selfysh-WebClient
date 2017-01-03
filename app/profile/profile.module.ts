@@ -6,9 +6,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { UserService } from '../services/user-service'
 import { ProfileComponent } from './profile.component'
+import { ProfileSettingsComponent } from './profile-settings/profile-settings.component'
 
 @NgModule({
-    declarations: [ProfileComponent],
+    declarations: [
+        ProfileComponent,
+        ProfileSettingsComponent
+    ],
     imports: [
         RouterModule,
         HttpModule,

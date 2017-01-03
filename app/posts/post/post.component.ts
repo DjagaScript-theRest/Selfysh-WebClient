@@ -8,7 +8,8 @@ import { IPost } from './../post';
 const DEFAULT_CATEGORY: String = 'other';
 
 class Post implements IPost {
-    constructor(public title: String,
+    constructor(public _id: String,
+        public title: String,
         public category: String,
         public author: String,
         public createdOn: Date,
@@ -60,7 +61,7 @@ export class PostCreateComponent {
                 }
 
                 let author = res.user.username;
-                let post = new Post(this.title, this.selectedCategory, author, new Date(), this.imageName, this.imagePath, 0, 0);
+                let post = new Post(null, this.title, this.selectedCategory, author, new Date(), this.imageName, this.imagePath, 0, 0);
                 this.postService.createPost(post)
                     .subscribe((dbPost) => this.userService.addPost(author, dbPost));
             });

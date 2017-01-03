@@ -3,11 +3,12 @@ import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { HttpHeadersService } from './http-headers.service'
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
+import { Constants } from '../constants/constants';
 
-const RegisterUrl: string = 'http://localhost:1337/api/auth/register';
-const LoginUrl: string = 'http://localhost:1337/api/auth/login';
-const LogoutUrl: string = 'http://localhost:1337/api/auth/logout';
-const GetLoggedUser: string = 'http://localhost:1337/api/auth/getLoggedUser';
+const RegisterUrl: string = Constants.hostUrl + 'api/auth/register';
+const LoginUrl: string = Constants.hostUrl + 'api/auth/login';
+const LogoutUrl: string = Constants.hostUrl + 'api/auth/logout';
+const GetLoggedUser: string = Constants.hostUrl + 'api/auth/getLoggedUser';
 const AuthToken: string = 'auth_token';
 @Injectable()
 export class AuthenticationService {

@@ -1,0 +1,80 @@
+<div class="container"></div>
+<div class="row"></div>
+<div class="container">
+    <h1>Edit Profile</h1>
+    <hr>
+    <div class="row">
+        <form class="form-horizontal" [formGroup]="userSettingsToUpdate" #userSettingsForm="ngForm" (ngSubmit)="updateSettings(); userSettingsForm.reset()">
+
+            <!-- left column -->
+            <div class="col-md-3">
+                <div class="text-center">
+                    <img [src]="imagesUrl + user?.avatar" class="avatar img-responsive" alt="avatar" style="max-height: 100px">
+                    <h6>Upload a different profile photo...</h6>
+
+                    <input type="file" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="text-center">
+                    <img [src]="imagesUrl + user?.cover" class="avatar img-responsive" alt="avatar" style="max-height: 100px" > 
+                    <h6>Upload a different cover photo...</h6>
+
+                    <input type="file" class="form-control">
+                </div>
+            </div>
+
+            <!-- edit form column -->
+            <div class="col-md-9 personal-info">
+
+                <h3>Personal info</h3>
+
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">First name:</label>
+                    <div class="col-lg-8">
+                        <input name="firstName" type="text" class="form-control" formControlName="firstName">
+                        <span class="text-danger" *ngIf="!userSettingsToUpdate.controls['firstName'].valid && userSettingsToUpdate.controls['firstName'].touched">First name is not valid</span>
+
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Last name:</label>
+                    <div class="col-lg-8">
+                        <input name="lastName" type="text" class="form-control" formControlName="lastName">
+                        <span class="text-danger" *ngIf="!userSettingsToUpdate.controls['lastName'].valid && userSettingsToUpdate.controls['lastName'].touched">Lastname is not valid</span>
+
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-md-3 control-label">New password:</label>
+                    <div class="col-md-8">
+                        <input name="newPassword" type="password" class="form-control" formControlName="newPassword">
+                        <span class="text-danger" *ngIf="!userSettingsToUpdate.controls['newPassword'].valid && userSettingsToUpdate.controls['newPassword'].touched">Password not valid</span>
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Confirm new password:</label>
+                    <div class="col-md-8">
+                        <input id="signupPasswordagain" type="password" maxlength="25" class="form-control" formControlName="confirmedPassword">
+                        <span class="text-danger" *ngIf="userSettingsToUpdate.controls['confirmedPassword'].value != userSettingsToUpdate.controls['newPassword'].value && userSettingsToUpdate.controls['confirmedPassword'].touched ">Passwords do not match</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label"></label>
+                    <div class="col-md-8">
+                        <!--<input type="button" class="btn btn-primary" value="Save Changes">-->
+                        <button type="submit" class="btn btn-default" >Save Changes</button>
+                        <span></span>
+                        <input type="reset" class="btn btn-default" value="Cancel">
+                    </div>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>
+<hr>

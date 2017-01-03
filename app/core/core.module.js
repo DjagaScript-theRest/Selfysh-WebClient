@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var common_1 = require("@angular/common");
+var forms_1 = require("@angular/forms");
 var nav_component_1 = require("./navigation/nav.component");
 var CoreModule = (function () {
     function CoreModule() {
@@ -19,7 +20,7 @@ var CoreModule = (function () {
 }());
 CoreModule = __decorate([
     core_1.NgModule({
-        imports: [router_1.RouterModule, common_1.CommonModule],
+        imports: [router_1.RouterModule, common_1.CommonModule, forms_1.FormsModule],
         declarations: [nav_component_1.NavComponent],
         exports: [nav_component_1.NavComponent]
     }),

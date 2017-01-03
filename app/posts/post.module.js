@@ -14,10 +14,12 @@ var common_1 = require("@angular/common");
 var forms_1 = require("@angular/forms");
 var ng2_file_upload_1 = require("ng2-file-upload");
 var post_list_component_1 = require("./post-list.component");
+var post_details_component_1 = require("./post-details.component");
 var post_category_component_1 = require("./post-category.component");
 var post_upload_component_1 = require("./shared/post-upload.component");
 var post_component_1 = require("./post/post.component");
 var init_caps_pipe_1 = require("./shared/init-caps.pipe");
+var search_pipe_1 = require("./search.pipe");
 var is_loggedIn_guard_1 = require("./../guards/is-loggedIn.guard");
 var post_service_1 = require("./post.service");
 var PostModule = (function () {
@@ -33,16 +35,19 @@ PostModule = __decorate([
             router_1.RouterModule.forChild([
                 { path: 'posts/create', component: post_component_1.PostCreateComponent, canActivate: [is_loggedIn_guard_1.GuardIsLoggedUser] },
                 { path: 'posts', component: post_list_component_1.PostListComponent },
-                { path: 'posts/:category', component: post_category_component_1.PostCategoryComponent }
+                { path: 'posts/:category', component: post_category_component_1.PostCategoryComponent },
+                { path: 'post/:id', component: post_details_component_1.PostDetailsComponent }
             ])
         ],
         declarations: [
             post_list_component_1.PostListComponent,
+            post_details_component_1.PostDetailsComponent,
             post_category_component_1.PostCategoryComponent,
             post_component_1.PostCreateComponent,
             post_upload_component_1.PostUploadComponent,
             ng2_file_upload_1.FileSelectDirective,
-            init_caps_pipe_1.InitCapsPipe
+            init_caps_pipe_1.InitCapsPipe,
+            search_pipe_1.SearchPipe
         ],
         providers: [
             post_service_1.PostService,
