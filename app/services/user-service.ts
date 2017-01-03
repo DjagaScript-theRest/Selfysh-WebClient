@@ -77,5 +77,12 @@ export class UserService {
                 return { status: res.status, body: res.json() }
             })
     }
+
+    public subscribe(subscribedId: any) {
+        let token = localStorage.getItem(AuthToken);
+        let options = this.httpHeadersService.getHeaders(token);
+        return this.http.get(Constants.hostUrl + 'api/users/subscribe/' + subscribedId, options)
+
+    }
 }
 

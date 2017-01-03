@@ -2,7 +2,7 @@
 	<div class="row">
 		<!-- code start -->
 		<div class="twPc-div">
-			<a [style.background-image]="'url(' + imagesUrl + user?.cover + ')'" class="twPc-bg twPc-block"></a>
+			<a [style.background-image]="'url(' + imagesUrl + profilesUser?.cover + ')'" class="twPc-bg twPc-block"></a>
 
 			<div>
 				<div class="twPc-button">
@@ -13,54 +13,40 @@
 
 
 				<a href="#" class="twPc-avatarLink">
-					<img [src]="imagesUrl + user?.avatar" class="twPc-avatarImg">
+					<img [src]="imagesUrl + profilesUser?.avatar" class="twPc-avatarImg">
 				</a>
 
 				<div class="twPc-divUser">
 					<div class="twPc-divName">
-						<a href="/profile">{{user?.username}}</a>
+						<a href="/profile">{{profilesUser?.username}}</a>
 					</div>
 					<span>
-				<a href="#" *ngIf="user?.fullname">{{user?.fullname}}</a>
+				<a href="#" *ngIf="profilesUser?.fullname">{{profilesUser?.fullname}}</a>
 					</span>
-				</div>
-				<div class="dropdown" id="dropdown">
-					<input type="checkbox" id="drop1" />
-					<label for="drop1" class="dropdown_button">Settings
-									<i class="fa fa-cog" aria-hidden="true"></i>
-									 <span class="arrow"></span></label>
-					<ul class="dropdown_content">
-						<li><a href="/profile/edit">Edit profile <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></li>
-						<li><a href="/home">Newsfeed <i class="fa fa-newspaper-o" aria-hidden="true"></i></a></li>
-						<li><a href="/upload">Upload selfie <i class="fa fa-upload" aria-hidden="true"></i></a></li>
-						<li><a href="/logout">Logout <i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
-						
-					</ul>
-
-				</div>
+				</div>				
 
 				<div class="twPc-divStats">
 					<ul class="twPc-Arrange">
 						<li class="twPc-ArrangeSizeFit">
 							<a href="#">
 								<span class="twPc-StatLabel twPc-block">Selfies</span>
-								<span class="twPc-StatValue">{{user?.imagePosts.length}}</span>
+								<span class="twPc-StatValue">{{profilesUser?.imagePosts.length}}</span>
 							</a>
 						</li>
 						<li class="twPc-ArrangeSizeFit">
 							<a href="#">
 								<span class="twPc-StatLabel twPc-block">Subscribed</span>
-								<span class="twPc-StatValue">{{user?.subscribed.length}}</span>
+								<span class="twPc-StatValue">{{profilesUser?.subscribed.length}}</span>
 							</a>
 						</li>
 						<li class="twPc-ArrangeSizeFit">
 							<a href="#">
 								<span class="twPc-StatLabel twPc-block">Subscribers</span>
-								<span class="twPc-StatValue">{{user?.subscribers.length}}</span>
+								<span class="twPc-StatValue">{{profilesUser?.subscribers.length}}</span>
 							</a>
 						</li>
 						<li class="twPc-ArrangeSizeFit">
-
+                            <button class="btn btn-filled" (click)="subscribe()">Subscribe</button>
 						</li>
 					</ul>
 				</div>
@@ -69,3 +55,39 @@
 		<!-- code end -->
 	</div>
 </div>
+
+<!--
+0
+_id
+:
+"586b60f797aacb24e4ed0bf4"
+avatar
+:
+"test.gif"
+cover
+:
+"defaultCover.jpg"
+email
+:
+"fssdfa@2fdsfs.com"
+imagePosts
+:
+Array[0]
+name
+:
+"fdsafd fsdafasd"
+passHash
+:
+"3934448569f982f86eb99910036fe99e0b8482794c4dfa369c3d6453d04ddfb7"
+salt
+:
+"abdQmQLJFqHm4zhG9g7SDFAw99BXK1Nqi2PcI/8P9wn3z02V+xK2RLQ0aKbSF81fkCiRIkoCQIirqWtx+H/fN8JoypP8NoYy/ofVcMNXSU/WC5Y/ODHaNNvq3+TS/aTLeBJ/i0iiYhIgYpH1UEKXUXb2XzZjT9csRufqJN8MAa8="
+subscribed
+:
+Array[0]
+subscribers
+:
+Array[0]
+username
+:
+"maikati"-->

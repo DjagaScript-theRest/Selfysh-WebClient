@@ -69,6 +69,11 @@ var UserService = (function () {
             return { status: res.status, body: res.json() };
         });
     };
+    UserService.prototype.subscribe = function (subscribedId) {
+        var token = localStorage.getItem(AuthToken);
+        var options = this.httpHeadersService.getHeaders(token);
+        return this.http.get(constants_1.Constants.hostUrl + 'api/users/subscribe/' + subscribedId, options);
+    };
     return UserService;
 }());
 UserService = __decorate([

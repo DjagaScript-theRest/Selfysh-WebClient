@@ -16,6 +16,7 @@ var login_component_1 = require("./authentication/login/login.component");
 var is_loggedIn_guard_1 = require("./guards/is-loggedIn.guard");
 var profile_component_1 = require("./profile/profile.component");
 var profile_settings_component_1 = require("./profile/profile-settings/profile-settings.component");
+var others_profile_component_1 = require("./profile/others-profile/others-profile.component");
 //import { UserComponent } from './components/user/user.component';
 //import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 var routes = [
@@ -24,7 +25,8 @@ var routes = [
     { path: '', redirectTo: '/posts', pathMatch: 'full' },
     { path: 'profile', canActivate: [is_loggedIn_guard_1.GuardIsLoggedUser], component: profile_component_1.ProfileComponent },
     { path: 'profile/edit', canActivate: [is_loggedIn_guard_1.GuardIsLoggedUser], component: profile_settings_component_1.ProfileSettingsComponent },
-    { path: 'home', component: home_component_1.HomeComponent }
+    { path: 'home', component: home_component_1.HomeComponent },
+    { path: 'user/:id', component: others_profile_component_1.OthersProfileComponent }
 ];
 var AppRoutingModule = (function () {
     function AppRoutingModule() {
