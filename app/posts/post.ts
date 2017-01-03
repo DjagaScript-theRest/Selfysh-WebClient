@@ -1,7 +1,10 @@
 export interface IPost {
     title: String,
+    category: String,
     author: String,
-    imageUrl: String,
+    createdOn: Date,
+    imageName: String,
+    imagePath: String,
     likes: Number,
     dislikes: Number,
     comments: String[]

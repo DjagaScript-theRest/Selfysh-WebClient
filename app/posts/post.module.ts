@@ -10,6 +10,7 @@ import { PostCategoryComponent } from './post-category.component';
 import { PostUploadComponent } from './shared/post-upload.component';
 import { PostCreateComponent } from './post/post.component';
 import { InitCapsPipe } from './shared/init-caps.pipe';
+import { GuardIsLoggedUser } from './../guards/is-loggedIn.guard';
 
 import { PostService } from './post.service';
 
@@ -18,7 +19,7 @@ import { PostService } from './post.service';
         CommonModule,
         FormsModule,
         RouterModule.forChild([
-            { path: 'posts/create', component: PostCreateComponent },
+            { path: 'posts/create', component: PostCreateComponent, canActivate: [GuardIsLoggedUser] },
             { path: 'posts', component: PostListComponent },
             { path: 'posts/:category', component: PostCategoryComponent }
         ])
@@ -32,7 +33,8 @@ import { PostService } from './post.service';
         InitCapsPipe
     ],
     providers: [
-        PostService
+        PostService,
+        GuardIsLoggedUser
     ]
 })
 export class PostModule { }

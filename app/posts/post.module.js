@@ -18,6 +18,7 @@ var post_category_component_1 = require("./post-category.component");
 var post_upload_component_1 = require("./shared/post-upload.component");
 var post_component_1 = require("./post/post.component");
 var init_caps_pipe_1 = require("./shared/init-caps.pipe");
+var is_loggedIn_guard_1 = require("./../guards/is-loggedIn.guard");
 var post_service_1 = require("./post.service");
 var PostModule = (function () {
     function PostModule() {
@@ -30,7 +31,7 @@ PostModule = __decorate([
             common_1.CommonModule,
             forms_1.FormsModule,
             router_1.RouterModule.forChild([
-                { path: 'posts/create', component: post_component_1.PostCreateComponent },
+                { path: 'posts/create', component: post_component_1.PostCreateComponent, canActivate: [is_loggedIn_guard_1.GuardIsLoggedUser] },
                 { path: 'posts', component: post_list_component_1.PostListComponent },
                 { path: 'posts/:category', component: post_category_component_1.PostCategoryComponent }
             ])
@@ -44,7 +45,8 @@ PostModule = __decorate([
             init_caps_pipe_1.InitCapsPipe
         ],
         providers: [
-            post_service_1.PostService
+            post_service_1.PostService,
+            is_loggedIn_guard_1.GuardIsLoggedUser
         ]
     }),
     __metadata("design:paramtypes", [])

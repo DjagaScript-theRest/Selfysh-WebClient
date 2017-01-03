@@ -13,9 +13,12 @@ var http_1 = require("@angular/http");
 require("rxjs/add/operator/do");
 // import 'rxjs/add/operator/catch';
 require("rxjs/add/operator/map");
+var http_headers_service_1 = require("./../services/http-headers.service");
+var AuthToken = 'auth_token';
 var PostService = (function () {
-    function PostService(_http) {
+    function PostService(_http, httpHeadersService) {
         this._http = _http;
+        this.httpHeadersService = httpHeadersService;
         this._postUrl = 'http://localhost:1337/api/posts';
     }
     PostService.prototype.getPosts = function () {
@@ -28,11 +31,19 @@ var PostService = (function () {
             .map(function (response) { return response.json(); })
             .do(function (data) { return console.log('All: ' + JSON.stringify(data)); });
     };
+    PostService.prototype.createPost = function (post) {
+        var token = localStorage.getItem(AuthToken);
+        var options = this.httpHeadersService.getHeaders(token);
+        return this._http.post(this._postUrl, post, options)
+            .map(function (response) {
+            return response.json();
+        });
+    };
     return PostService;
 }());
 PostService = __decorate([
     core_1.Injectable(),
-    __metadata("design:paramtypes", [http_1.Http])
+    __metadata("design:paramtypes", [http_1.Http, http_headers_service_1.HttpHeadersService])
 ], PostService);
 exports.PostService = PostService;
 //# sourceMappingURL=post.service.js.map
