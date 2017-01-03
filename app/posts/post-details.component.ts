@@ -12,7 +12,7 @@ import { PostService } from './post.service';
 })
 export class PostDetailsComponent implements OnInit, OnDestroy {
     post: IPost;
-    // commentContent: string;
+    commentContent: string;
     postUrl: string;
     private sub: Subscription;
 
@@ -41,7 +41,11 @@ export class PostDetailsComponent implements OnInit, OnDestroy {
     scrollDown() {
         window.scrollTo(0,document.body.scrollHeight);
     }
-    // addComment() {
-    //     this._postService
-    // }
+      addComment() {
+        this._postService.addComment(this.postUrl, this.commentContent)
+        .map(r => r.json())
+        .subscribe((result) => {
+            console.log(result);
+      });
+    }
 }

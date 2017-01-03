@@ -20,13 +20,11 @@ export class PostService {
     getPosts(): Observable<IPost[]> {
         return this._http.get(this._postUrl)
             .map((response: Response) => <IPost[]>response.json())
-            .do(data => console.log('All: ' + JSON.stringify(data)))
     }
 
     getPostsByCategory(category: string): Observable<IPost[]> {
         return this._http.get(this._postUrl + '/' + category)
             .map((response: Response) => <IPost[]>response.json())
-            .do(data => console.log('All: ' + JSON.stringify(data)))
     }
 
     getPostById(id: string): Observable<IPost> {
@@ -42,5 +40,14 @@ export class PostService {
             .map((response: Response) => {
                 return <IPost>response.json()
             });
+    }
+
+      addComment(url: string, comment: string) {
+
+        let body = {
+            comment
+        };
+
+        return this._http.post(url, body);
     }
 }
