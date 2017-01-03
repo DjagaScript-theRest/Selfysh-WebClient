@@ -29,7 +29,7 @@ var LoginComponent = (function () {
         var _this = this;
         this._authService.login(this.userToLogin.value)
             .subscribe(function (res) {
-            _this._router.navigateByUrl('/home');
+            _this._router.navigateByUrl('/posts');
             location.reload();
         }, function (err) {
             var notificationMsg = JSON.parse(err._body).message;
